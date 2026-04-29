@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+:root {
+    --cor-navbar: #062B5B;
+    --botoes-secundarios: #0A5D9B;
+    --botoes-secundarios-hover: #063b64;
+    --detalhes: #00B7E8;
+    --fundos-decorativos: #D9F4FF;
+    --botoes-emergencia: #C53030;
+    --fundo-principal: #ffffff;
+    --card-formularios: #F7F9FC;
+    --bordas-inputs: #DCE3EA;
+    --textos-principais: #1F2937;
+    --textos-menores: #6B7280;
+}
+
+.top-custom {
+    color: white;
+}
+.bg-custom {
+    background-color: var(--fundo-principal);
+}
+.bg-custom-card {
+    background-color: var(--card-formularios);
+}
+.btn-custom {
+    background-color: var(--botoes-secundarios);
+    border-color: var(--botoes-secundarios);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.btn-custom:hover{
+    background-color: var(--botoes-secundarios-hover);
+    border-color: var(--botoes-secundarios-hover);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.txt-small{
+    color: var(--textos-menores);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+.txt-main{
+    color: var(--textos-principais);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+.img {
+    width: 200px;
+    margin-bottom: 25px;
+}
+.nav-bar {
+    position: sticky;
+    top: 0;           
+    backdrop-filter: blur(16px);
+    background-color: var(--cor-navbar);
+    display: flex;
+    align-items: center;
+    gap: 30px;          
+}
+.img-nav {
+    width: 150px;
+    margin-left: 50px;
+}
+.nav-links{
+    display: flex;
+    gap:22px;
+    margin-left: 555px;
+}
