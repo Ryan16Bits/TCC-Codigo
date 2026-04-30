@@ -48,8 +48,22 @@
 .txt-main{
     color: var(--textos-principais);
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+.txt-small-nav{
+    color: white;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
+}
+.txt-main-nav{
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
 }
 .img-login {
     width: 200px;
     margin-bottom: 25px;
+}
+.bg-custom-nav {
+    background-color: var(--cor-navbar);
+}
