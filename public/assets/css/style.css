@@ -50,25 +50,6 @@
     font-family: 'Inter', sans-serif;
     font-weight: 300;
 }
-.img {
+.img-login {
     width: 200px;
     margin-bottom: 25px;
-}
-.nav-bar {
-    position: sticky;
-    top: 0;           
-    backdrop-filter: blur(16px);
-    background-color: var(--cor-navbar);
-    display: flex;
-    align-items: center;
-    gap: 30px;          
-}
-.img-nav {
-    width: 150px;
-    margin-left: 50px;
-}
-.nav-links{
-    display: flex;
-    gap:22px;
-    margin-left: 555px;
-}
