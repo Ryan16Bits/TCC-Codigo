@@ -67,3 +67,6 @@
 .bg-custom-nav {
     background-color: var(--cor-navbar);
 }
+.card:hover {
+    transform: translateY(-10px);
+}
