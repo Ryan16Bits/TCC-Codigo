@@ -17,3 +17,15 @@ Route::get('/tipo', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::get('/relatorios', function () {
+    return view('relatorio/relatorios');
+});
+
+Route::get('/observacao', function () {
+    return view('relatorio/observacao');
+});
+
+Route::get('/acelerometro', function () {
+    return view('relatorio/acelerometro');
+});
