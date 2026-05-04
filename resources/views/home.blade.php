@@ -4,26 +4,21 @@
   <div class="container text-center">
     <br>
     <br>
+    <h2 class="txt-main">Bem Vindo, Gordon Freeman!</h2>
     <br>
-    <br>
-    <br>
-    <div class="row align-items-start">
+    <div class="text-start">
+        <h4 class="txt-main">Gerenciamento:
+    </div>
+    <div class="row">
       <div class="col">
         <div class="card shadow bor card:hover">
-          <br>
-          <br>
-          <i class="fa-solid fa-person-cane fa-10x mx-auto"></i>
-          <br>
-          <br>
-          <a href="#" class="txt-main">CADASTRAR IDOSO</a>
+          <a href="#" class="text-body"><i class="fa-solid fa-person-cane fa-2x"></i></a><h6 class="txt-main">CADASTRAR IDOSO</h6>
         </div>
       </div>
       <div class="col">
         <div class="card shadow bor card:hover">
           <br>
-          <br>
           <i class="fa-solid fa-user-doctor fa-10x mx-auto"></i>
-          <br>
           <br>
           <a href="#" class="txt-main">CADASTRAR CUIDADOR</a>
         </div>
