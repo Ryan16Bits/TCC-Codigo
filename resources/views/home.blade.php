@@ -11,17 +11,18 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="card shadow bor card:hover">
-          <a href="#" class="text-body"><i class="fa-solid fa-person-cane fa-2x"></i></a><h6 class="txt-main">CADASTRAR IDOSO</h6>
-        </div>
+        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
+		  <br>
+          <i class="fa-solid fa-person-cane fa-2x"></i>
+		  <span class="txt-main">CADASTRAR IDOSO</span>
+        </div></a>
       </div>
       <div class="col">
-        <div class="card shadow bor card:hover">
+        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
           <br>
-          <i class="fa-solid fa-user-doctor fa-10x mx-auto"></i>
-          <br>
-          <a href="#" class="txt-main">CADASTRAR CUIDADOR</a>
-        </div>
+          <i class="fa-solid fa-user-doctor fa-2x mx-auto"></i>
+          <span class="txt-main">CADASTRAR CUIDADOR</span>
+        </div></a>
       </div>
     </div>
     <br>
