@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-custom-nav">
+<nav class="navbar navbar-expand-lg bg-custom-nav" style="min-height: 68px;">
   <div class="container-fluid">
   
 	<!--MENU-->
@@ -43,13 +43,13 @@
 	
 	<!--LOGO-->
 	<div class="position-absolute top-50 start-50 translate-middle p-3 d-flex">
-		<img src="assets/img/logo-invertida.png" alt="Logo" width="40" height="34">
-		<div class="txt-main-nav">Fall Guard</div>
+		<img src="assets/img/logo-invertida.png" alt="Logo" width="60" height="54">
+		<h3 class="txt-main-nav">Fall Guard</h3>
 	</div>
 	
 	<!--CONTA-->
 	<div>
-		<i class="fa-regular fa-circle-user fa-xl" style="color: rgb(255, 255, 255);"></i>
+		<i class="fa-regular fa-circle-user fa-2x" style="color: rgb(255, 255, 255);"></i>
 	</div>
   </div>
 </nav>

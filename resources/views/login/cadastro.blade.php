@@ -1,6 +1,6 @@
 @extends("login/index")
 @section("conteudo")
-<main class="bg-custom d-flex align-items-center" style="height: 150vh;">
+<main class="bg-custom d-flex align-items-center">
 
     <div class="container">
         <div class="row justify-content-center">
@@ -43,6 +43,13 @@
                                 <label class="form-label txt-small">Repetir Senha</label>
                                 <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha novamente..." name="senha" />
                             </div>
+
+                            <!-- Data de Nascimento -->
+                            <div class="mb-3">
+                                <label class="form-label txt-small">Data de Nascimento</label>
+                                <input type="date" class="form-control form-control-lg txt-small" name="data" />
+                            </div>
+
 
                             <!-- Botão -->
                             <div class="d-grid mb-3">

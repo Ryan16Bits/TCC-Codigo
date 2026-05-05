@@ -1,6 +1,6 @@
 @extends("login/index")
 @section("conteudo")
-<main class="bg-custom d-flex align-items-center" style="height: 120vh;">
+<main class="bg-custom d-flex align-items-center">
 
     <div class="container">
         <div class="row justify-content-center">

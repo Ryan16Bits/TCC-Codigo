@@ -16,15 +16,8 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-custom-nav" style="min-height: 54px;">
+<nav class="navbar navbar-expand-lg bg-custom-nav" style="min-height: 68px;">
   <div class="container-fluid">
-  
-	<!--LOGO-->
-	<div class="position-absolute top-50 start-50 translate-middle p-3 d-flex">
-		<img src="assets/img/logo-invertida.png" alt="Logo" width="40" height="34">
-		<div class="txt-main-nav">Fall Guard</div>
-	</div>
-
 </nav>
 
 @yield("conteudo")
