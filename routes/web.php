@@ -29,3 +29,23 @@ Route::get('/observacao', function () {
 Route::get('/acelerometro', function () {
     return view('relatorio/acelerometro');
 });
+
+Route::get('/configuracoes', function () {
+    return view('configuracoes/configuracoes');
+});
+
+Route::get('/acessibilidade', function () {
+    return view('configuracoes/acessibilidade');
+});
+
+Route::get('/duvidas', function () {
+    return view('login/duvidas');
+});
+
+Route::get('/idiomas', function () {
+    return view('configuracoes/idiomas');
+});
+
+Route::get('/suporte', function () {
+    return view('configuracoes/suporte');
+});
