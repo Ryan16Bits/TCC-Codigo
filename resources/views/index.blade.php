@@ -12,7 +12,8 @@
 	<script src="https://kit.fontawesome.com/5e6e4af9c8.js" crossorigin="anonymous"></script>
 	
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
+    
+<script src="{{ asset('assets/js/ajuda.js') }}"></script>
 </head>
 
 <body>
