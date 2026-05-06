@@ -46,5 +46,15 @@
         </div>
     </a>
 
+    <a href="sobre" class="text-decoration-none">
+        <div class="card shadow-sm p-3 mb-3 d-flex justify-content-between align-items-center flex-row">
+            <div class="d-flex align-items-center gap-3">
+                 <i class="fa-solid fa-circle-info"></i>
+                <span class="txt-main">Sobre</span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </a>
+
 </div>
 @endsection

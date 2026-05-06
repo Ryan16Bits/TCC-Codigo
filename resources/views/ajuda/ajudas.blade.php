@@ -1,9 +1,5 @@
-
 @extends("index")
 @section("conteudo")
-
-
- 
 
     <!-- CONTEÚDO -->
     <div class="container py-5">
@@ -65,7 +61,7 @@
                         <li>Nenhuma informação é compartilhada ou vendida a terceiros.</li>
                         <li>Você pode remover a pulseira e excluir os dados a qualquer momento.</li>
                         <li>Estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD).</li>
-                        <li>Em caso de roubo de dados, culpe o cesar<li>
+                        <li>Em caso de roubo de dados, culpe o cesar</li>
                     </ul>
                 </section>
 
