@@ -49,3 +49,51 @@ Route::get('/idiomas', function () {
 Route::get('/suporte', function () {
     return view('configuracoes/suporte');
 });
+
+Route::get('/notificacoes', function () {
+    return view('configuracoes/notificacoes');
+});
+
+Route::get('/sobre', function () {
+    return view('configuracoes/sobre/sobre');
+});
+
+Route::get('/politica', function () {
+    return view('configuracoes/sobre/politicaPrivacidade');
+});
+
+Route::get('/sobreConta', function () {
+    return view('configuracoes/sobre/sobreConta');
+});
+
+Route::get('/termos', function () {
+    return view('configuracoes/sobre/termosUso');
+});
+
+Route::get('/ajuda', function () {
+    return view('ajuda/ajudas');
+});
+
+Route::get('/perfil', function () {
+    return view('perfil/perfil');
+});
+
+Route::get('/dados', function () {
+    return view('perfil/dados');
+});
+
+Route::get('/gerenciar', function () {
+    return view('perfil/gerenciar');
+});
+
+Route::get('/trocar', function () {
+    return view('perfil/trocar');
+});
+
+Route::get('/senha', function () {
+    return view('perfil/senha');
+});
+
+Route::get('/conectar', function () {
+    return view('pulseira/conectar');
+});
