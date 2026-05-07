@@ -11,14 +11,14 @@
     </div>
     <div class="row">
       <div class="col">
-        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
+        <a href="idoso" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
 		      <br>
           <i class="fa-solid fa-person-cane fa-2x"></i>
 		      <span class="txt-main">CADASTRAR IDOSO</span>
         </div></a>
       </div>
       <div class="col">
-        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
+        <a href="cuidador" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
           <br>
           <i class="fa-solid fa-user-doctor fa-2x"></i>
           <span class="txt-main">CADASTRAR CUIDADOR</span>
@@ -31,17 +31,17 @@
     </div>
     <div class="row">
       <div class="col">
-        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
+        <a href="pulseiras" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
 		      <br>
           <i class="fa-solid fa-plug-circle-check fa-2x"></i>
-		      <span class="txt-main">PULSEIRAS CADASTRADAS</span>
+		      <span class="txt-main">PULSEIRAS</span>
         </div></a>
       </div>
       <div class="col">
-        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
+        <a href="conectar" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
           <br>
           <i class="fa-solid fa-rss fa-2x"></i>
-          <span class="txt-main">CADASTRAR PULSEIRA</span>
+          <span class="txt-main">CONECTAR PULSEIRA</span>
         </div></a>
       </div>
     </div>
@@ -51,17 +51,10 @@
     </div>
     <div class="row">
       <div class="col">
-        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
+        <a href="relatorios" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
 		      <br>
           <i class="fa-regular fa-file-lines fa-2x"></i>
 		      <span class="txt-main">RELATÓRIOS</span>
-        </div></a>
-      </div>
-      <div class="col">
-        <a href="#" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
-          <br>
-          <i class="fa-solid fa-book fa-2x"></i>
-          <span class="txt-main">HISTÓRICO</span>
         </div></a>
       </div>
     </div>

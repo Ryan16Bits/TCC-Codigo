@@ -58,13 +58,13 @@
 
                             <!-- Links -->
                             <div class="text-center">
-                                <a href="#" class="text-secondary small text-decoration-none txt-small">Esqueceu a senha?</a>
+                                <a href="esqueciSenha" class="text-secondary small text-decoration-none txt-small">Esqueceu a senha?</a>
                             </div>
                             
                             <div class="d-grid mb-3 text-center">
                                 <hr>
                                 <p class="txt-small">Já possui conta?</p>
-                                <button class="btn btn-custom btn-custom:hover btn-lg" onclick="window.location.href='login/entrada.html';">Login</button>
+                                <button id="login" class="btn btn-custom btn-custom:hover btn-lg">Login</button>
                             </div>                            
                         </form>
                     </div>

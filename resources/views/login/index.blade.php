@@ -9,10 +9,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 	
-	<script src="https://kit.fontawesome.com/5e6e4af9c8.js" crossorigin="anonymous"></script>
-	
-	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	  <script src="https://kit.fontawesome.com/5e6e4af9c8.js" crossorigin="anonymous"></script>
+	  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+      document.getElementById("login").addEventListener("click", function() {
+      window.location.href = "login";
+    });
+
+    document.getElementById("cadastro").addEventListener("click", function() {
+    window.location.href = "cadastro";
+    });
+    </script>
 </head>
 
 <body>

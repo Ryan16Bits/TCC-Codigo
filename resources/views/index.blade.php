@@ -31,12 +31,13 @@
 			<i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255);"></i>
           </button>
           <ul class="dropdown-menu bg-custom-nav">
-            <li><a class="dropdown-item txt-small-nav" href="#">Home</a></li>
+            <li><a class="dropdown-item txt-small-nav" href="home">Home</a></li>
             <li><a class="dropdown-item txt-small-nav" href="#">Idoso</a></li>
             <li><a class="dropdown-item txt-small-nav" href="#">Cuidador</a></li>
-            <li><a class="dropdown-item txt-small-nav" href="#">Pulseira</a></li>
+            <li><a class="dropdown-item txt-small-nav" href="pulseiras">Pulseira</a></li>
             <li><a class="dropdown-item txt-small-nav" href="#">Relatórios</a></li>
-            <li><a class="dropdown-item txt-small-nav" href="#">Configurações</a></li>
+            <li><a class="dropdown-item txt-small-nav" href="configuracoes">Configurações</a></li>
+            <li><a class="dropdown-item txt-small-nav" href="batimento">Batimento</a></li>
           </ul>
         </li>
       </ul>
@@ -49,9 +50,9 @@
 	
 	<!--CONTA-->
 	<div>
-		<i class="fa-regular fa-circle-user fa-2x" style="color: rgb(255, 255, 255);"></i>
+    <a href="notificacoesLista"><i class="fa-solid fa-bell fa-2x icon icon:hover" style="color: rgb(255, 255, 255);"></i></a>
+		<a href="perfil"><i class="fa-regular fa-circle-user fa-2x icon icon:hover" style="color: rgb(255, 255, 255);"></i></a>
 	</div>
-  </div>
 </nav>
 
 @yield("conteudo")
