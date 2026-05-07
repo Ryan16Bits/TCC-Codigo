@@ -97,3 +97,27 @@ Route::get('/senha', function () {
 Route::get('/conectar', function () {
     return view('pulseira/conectar');
 });
+
+Route::get('/pulseiras', function () {
+    return view('pulseira/pulseira');
+});
+
+Route::get('/cuidador', function () {
+    return view('cadastrar/cuidador');
+});
+
+Route::get('/idoso', function () {
+    return view('cadastrar/idoso');
+});
+
+Route::get('/esqueciSenha', function () {
+    return view('login/esqueciSenha');
+});
+
+Route::get('/batimento', function () {
+    return view('batimento');
+});
+
+Route::get('/notificacoesLista', function () {
+    return view('notificacoes');
+});
