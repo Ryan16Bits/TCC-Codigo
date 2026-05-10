@@ -114,10 +114,14 @@ Route::get('/esqueciSenha', function () {
     return view('login/esqueciSenha');
 });
 
-Route::get('/batimento', function () {
-    return view('batimento');
+Route::get('/esqueciSenha2', function () {
+    return view('login/esqueciSenha2');
 });
 
 Route::get('/notificacoesLista', function () {
     return view('notificacoes');
+});
+
+Route::get('/homeCuidador', function () {
+    return view('homeCuidador');
 });
