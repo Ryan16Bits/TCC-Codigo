@@ -32,12 +32,11 @@
           </button>
           <ul class="dropdown-menu bg-custom-nav">
             <li><a class="dropdown-item txt-small-nav" href="home">Home</a></li>
-            <li><a class="dropdown-item txt-small-nav" href="#">Idoso</a></li>
-            <li><a class="dropdown-item txt-small-nav" href="#">Cuidador</a></li>
+            <li><a class="dropdown-item txt-small-nav" href="idoso">Idoso</a></li>
+            <li><a class="dropdown-item txt-small-nav" href="cuidador">Cuidador</a></li>
             <li><a class="dropdown-item txt-small-nav" href="pulseiras">Pulseira</a></li>
-            <li><a class="dropdown-item txt-small-nav" href="#">Relatórios</a></li>
+            <li><a class="dropdown-item txt-small-nav" href="relatorios">Relatórios</a></li>
             <li><a class="dropdown-item txt-small-nav" href="configuracoes">Configurações</a></li>
-            <li><a class="dropdown-item txt-small-nav" href="batimento">Batimento</a></li>
           </ul>
         </li>
       </ul>

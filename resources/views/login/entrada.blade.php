@@ -41,7 +41,7 @@
 
                             <!-- Botão -->
                             <div class="d-grid mb-3">
-                                <button type="submit" class="btn btn-custom btn-lg">Entrar</button>
+                                <a class="btn btn-custom btn-custom:hover btn-lg" href="tipo" role="button">Login</a>
                             </div>
 
                             <!-- Links -->
@@ -52,7 +52,7 @@
                             <div class="d-grid mb-3 text-center">
                                 <hr>
                                 <p class="txt-small">Não possui conta?</p>
-                                <button id="cadastro" class="btn btn-custom btn-custom:hover btn-lg">Cadastrar</button>
+                                <a class="btn btn-custom btn-custom:hover btn-lg" href="cadastro" role="button">Cadastrar</a>
                             </div>
                         </form>
                     </div>

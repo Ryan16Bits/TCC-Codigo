@@ -44,27 +44,15 @@
                                 <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha novamente..." name="senha" />
                             </div>
 
-                            <!-- Data de Nascimento -->
-                            <div class="mb-3">
-                                <label class="form-label txt-small">Data de Nascimento</label>
-                                <input type="date" class="form-control form-control-lg txt-small" name="data" />
-                            </div>
-
-
                             <!-- Botão -->
                             <div class="d-grid mb-3">
-                                <button type="submit" class="btn btn-custom btn-lg">Entrar</button>
-                            </div>
-
-                            <!-- Links -->
-                            <div class="text-center">
-                                <a href="esqueciSenha" class="text-secondary small text-decoration-none txt-small">Esqueceu a senha?</a>
+                                <a class="btn btn-custom btn-custom:hover btn-lg" href="tipo" role="button">Cadastrar</a>
                             </div>
                             
                             <div class="d-grid mb-3 text-center">
                                 <hr>
                                 <p class="txt-small">Já possui conta?</p>
-                                <button id="login" class="btn btn-custom btn-custom:hover btn-lg">Login</button>
+                                <a class="btn btn-custom btn-custom:hover btn-lg" href="login" role="button">Login</a>
                             </div>                            
                         </form>
                     </div>
