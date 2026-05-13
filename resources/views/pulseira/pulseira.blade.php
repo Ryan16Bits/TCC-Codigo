@@ -106,35 +106,5 @@
         </button>
     </div>
 
-    <!-- BATIMENTOS -->
-    <div class="mt-4">
-
-        <p class="txt-small">BATIMENTOS CARDÍACOS</p>
-
-        <div class="card p-3 shadow-sm">
-
-            <div class="d-flex justify-content-between align-items-center">
-
-                <div>
-                    <h5 class="mb-0 text-danger">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                        78 BPM
-                    </h5>
-
-                    <span class="txt-small">
-                        Monitoramento em tempo real
-                    </span>
-                </div>
-
-                <span class="badge bg-success">
-                    Normal
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
 </div>
 @endsection

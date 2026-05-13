@@ -26,12 +26,6 @@
                                 <label class="form-label txt-small">Email</label>
                                 <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" />
                             </div>
-                          
-                            <!-- Telefone -->
-                            <div class="mb-3">
-                                <label class="form-label txt-small">Telefone</label>
-                                <input type="tel" class="form-control form-control-lg txt-small" placeholder="Insira seu telefone..." name="telefone" />
-                            </div>
                             
                             <!-- Senha -->
                             <div class="mb-3">

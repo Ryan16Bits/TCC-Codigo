@@ -10,12 +10,12 @@
 
             <h5 class="mb-3">Conectar via QR Code</h5>
 
-            <!-- QR CODE FAKE -->
-            <div class="bg-white p-3 d-inline-block border rounded mb-3">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=fallguard123" alt="QR Code">
+            <!-- QR CODE -->
+            <div class="bg-white p-3 d-inline-flex align-items-center justify-content-center border rounded mb-3" style="width: 115px; height: 100px;">
+                <i class="fa-regular fa-camera fa-2x"></i>
             </div>
 
-            <p class="txt-small">Escaneie com o aplicativo da pulseira</p>
+            <p class="txt-small">Escaneie com a câmera do celular</p>
 
         </div>
     </div>

@@ -11,47 +11,62 @@
     </div>
     <div class="row">
       <div class="col">
-        <a href="idoso" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
-		      <br>
-          <i class="fa-solid fa-person-cane fa-2x"></i>
-		      <span class="txt-main">Cadastrar Idoso</span>
-        </div></a>
+        <a href="idoso" class="text-body text-decoration-none">
+          <div class="card shadow bor card-hover d-inline-block text-start p-3" style="height: auto; width: 200px">
+            <i class="fa-solid fa-person-cane fa-2x txt-main"></i>
+            <span class="txt-main">Idoso</span>
+          </div>
+        </a>
       </div>
       <div class="col">
-        <a href="cuidador" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
-          <br>
-          <i class="fa-solid fa-user-doctor fa-2x"></i>
-          <span class="txt-main">Cadastar Cuidador</span>
-        </div></a>
+        <a href="cuidador" class="text-body text-decoration-none">
+          <div class="card shadow bor card:hover d-inline-block text-start p-3" style="height: auto; width: 200px">
+            <i class="fa-solid fa-user-doctor fa-2x txt-main"></i>
+            <span class="txt-main">Cuidador</span>
+          </div>
+        </a>
       </div>
     </div>
     <br>
+    
     <div class="text-start">
       <h4 class="txt-main">Pulseiras:</h4>
     </div>
+    
     <div class="row">
-        <a href="pulseiras" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 82px; width: 560px;">
-        <div class="d-flex justify-content-between align-items-center txt-main">
-          <div>
-            <i class="fa-solid fa-bookmark fa-5x"></i>
+      <div class="d-flex justify-content-center">
+      <a href="pulseiras" class="text-decoration-none">
+        <div class="card shadow-lg border-0 rounded-4 p-3 card:hover" style="width: 100%; max-width: 560px;">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+              <i class="fa-solid fa-bookmark fa-2x txt-main"></i>
+              <h5 class="mb-0 txt-main">Pulseira 1</h5>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <br>
+              <span class="badge bg-success rounded-pill px-1 py-2">Conectada</span>
+              <div class="d-flex align-items-center gap-1 bg-danger bg-opacity-10 rounded-pill px-1 py-2">
+                <i class="fa-solid fa-heart-pulse text-danger fa-lg"></i>
+                <span class="fw-bold txt-main">78 BPM</span>
+              </div>
+            </div>
           </div>
-          <h5>Pulseira 1</h5>
-          <span>Conectada</span>
-        <div>
-          <i class="fa-solid fa-heart-pulse text-danger"></i>
-        <span class="txt-main">
-            78 BPM
-        </span>
         </div>
-          </div>
-        </div></a>
+      </a>
     </div>
+  </div>
+
     <br>
+    
     <div class="row">
-    <a href="conectar" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start rounded-circle" style="height: 36px; width: 42px;">
-          <i class="fa-solid fa-plus fa-2x"></i>
-        </div></a>
+        <a href="conectar" class="text-decoration-none">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle shadow-sm card:hover" 
+               style="width: 36px; height: 36px; background-color: var(--cor-navbar); transition: all 0.2s ease;">
+            <i class="fa-solid fa-plus fa-1x text-white"></i>
+          </div>
+        </a>
     </div>
+
     <br>
 
     <div class="text-start">
@@ -59,11 +74,12 @@
     </div>
     <div class="row">
       <div class="col">
-        <a href="relatorios" class="text-body"><div class="card shadow bor card:hover d-inline-block text-start" style="height: 90px; width: 200px;">
-		      <br>
-          <i class="fa-regular fa-file-lines fa-2x"></i>
-		      <span class="txt-main">Relatórios</span>
-        </div></a>
+        <a href="relatorios" class="text-body text-decoration-none">
+          <div class="card shadow bor card-hover d-inline-block text-start p-3" style="height: auto; width: 200px;">
+            <i class="fa-regular fa-file-lines fa-2x txt-main"></i>
+            <span class="mt-2 txt-main">Relatórios</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>

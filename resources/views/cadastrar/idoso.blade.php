@@ -122,6 +122,40 @@
 
                     </div>
 
+                    <!-- DATA -->
+                    <div class="col-md-6 mb-4">
+
+                        <label class="form-label txt-main fw-semibold">
+                            Data de Nascimento
+                        </label>
+
+                        <div class="input-group">
+
+                            <input type="date" class="form-control" step="0.01">
+
+                        </div>
+
+                    </div>
+
+                    <!-- GENERO -->
+                    <div class="col-md-6 mb-4">
+
+                        <label class="form-label txt-main fw-semibold">
+                            Gênero
+                        </label>
+
+                        <div class="input-group">
+
+                        <select id="gender" name="gender" class="form-control" step="0.01">
+                            <option value="">Selecione:</option>
+                            <option value="male">Homem</option>
+                            <option value="female">Mulher</option>
+                        </select>
+
+                        </div>
+
+                    </div>
+                
                 </div>
 
                 <!-- OBS -->
