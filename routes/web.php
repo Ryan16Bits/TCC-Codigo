@@ -70,16 +70,16 @@ Route::get('/termos', function () {
     return view('configuracoes/sobre/termosUso');
 });
 
-Route::get('/ajuda', function () {
-    return view('ajuda/ajudas');
-});
-
 Route::get('/perfil', function () {
     return view('perfil/perfil');
 });
 
 Route::get('/dados', function () {
     return view('perfil/dados');
+});
+
+Route::get('/editarDados', function () {
+    return view('perfil/editarDados');
 });
 
 Route::get('/gerenciar', function () {
