@@ -10,7 +10,7 @@
         </h1>
 
         <p class="txt-small">
-            Escolha uma das opções abaixo para solicitar víncular algúem como cuidador.
+            Escolha uma das opções abaixo para que se solicite a víncular alguém como cuidador.
         </p>
     </div>
 
