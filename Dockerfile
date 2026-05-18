@@ -1,6 +1,6 @@
 FROM php:8.3-apache
 # Define a imagem base do PHP 8.3 com Apache
-RUN apt-get update &amp;&amp; apt-get install -y \
+RUN apt-get update && apt-get install -y \
     git \
     curl \
     zip \
