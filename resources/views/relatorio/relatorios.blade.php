@@ -29,9 +29,6 @@
             <div class="txt-small">Queda detectada</div>
         </div>
 
-        <a href="/observacao">
-            <i class="fa-solid fa-pen"></i>
-        </a>
     </div>
 
     <div class="card shadow-sm p-3 mb-3 d-flex flex-row justify-content-between align-items-center">
@@ -40,9 +37,6 @@
             <div class="txt-small">Queda detectada</div>
         </div>
 
-        <a href="/observacao">
-            <i class="fa-solid fa-pen"></i>
-        </a>
     </div>
 
     <div class="card shadow-sm p-3 mb-3 d-flex flex-row justify-content-between align-items-center">
@@ -51,16 +45,13 @@
             <div class="txt-small">Queda detectada</div>
         </div>
 
-        <a href="/observacao">
-            <i class="fa-solid fa-pen"></i>
-        </a>
     </div>
 
 </div>
 
 <div class="container mt-4 text-center">
 
-    <h5 class="mb-3 txt-main">Acelerômetro</h5>
+    <h5 class="mb-3 txt-main">Sensor de Queda</h5>
 
     <div class="card shadow p-4">
         <p class="txt-small">Última leitura</p>

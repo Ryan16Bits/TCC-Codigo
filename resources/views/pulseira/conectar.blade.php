@@ -11,7 +11,7 @@
             <h5 class="mb-3">Conectar via QR Code</h5>
 
             <!-- QR CODE -->
-            <div class="bg-white p-3 d-inline-flex align-items-center justify-content-center border rounded mb-3" style="width: 115px; height: 100px;">
+            <div class="card card:hover p-3 d-inline-flex align-items-center justify-content-center border rounded mb-3" style="width: 115px; height: 100px;">
                 <i class="fa-regular fa-camera fa-2x"></i>
             </div>
 
