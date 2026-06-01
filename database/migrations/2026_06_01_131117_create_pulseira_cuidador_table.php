@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuario', function (Blueprint $table) {
-            $table->id('idUsuario');
+        Schema::create('pulseira_cuidador', function (Blueprint $table) {
+            $table->id('idCuidador');
             $table->string('nome');
-            $table->string('email');
             $table->string('telefone');
-            $table->string('senha');
-            $table->dateTime('dataNascimento');
             $table->enum('status', ['ativo', 'desativo', 'suspenso']);
             $table->timestamps();
+            $table->foreignId('idPulseira')->constrained('create_pulseira_table')->cascadeOnDelete();
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuario');
+        Schema::dropIfExists('pulseira_cuidador');
     }
 };
