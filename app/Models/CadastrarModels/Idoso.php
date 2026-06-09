@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
  
 class Idoso extends Model
 {
+    protected $table = 'idoso';
     // Campos que podem ser salvos no banco
-    protected $fillable = ['email', 'senha'];
+    protected $fillable = [
+        'nome', 
+        'peso',
+        'altura',
+        'dataNascimento'];
 }
- 
