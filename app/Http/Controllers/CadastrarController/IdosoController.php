@@ -2,33 +2,38 @@
  
 namespace App\Http\Controllers;
  
-use App\Models\Produto;
+use App\Models\Idoso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
  
 class IdosoController extends Controller
 {
-        // Recebe os dados do formulário e salva no banco
-    public function idoso(Request $request)
+
+    public function cadastrar(Request $request)
     {
         // Validação básica dos campos
-        $request->validate([
-            'nome'     => 'required',
-            'peso'     => 'required',
-            'altura'   => 'required',
-            'data'     => 'required',
-            'genero'   => 'required'
+        $validator = Validator::make($request->all(), [
+            'nome'     => 'nullable|string|max:255',
+            'peso'     => 'required|string',
+            'altura'   => 'nullable|string',
+            'dataNascimento'  => 'nullable|datetime',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validate)
+                ->withInput();
+            }
  
-        // Cria a conta no banco
-        Idoso::create([
-            'nome'       => $request->nome,
-            'peso'       => $request->peso,
-            'altura'     => $request->altura,
-            'data'       => $request->data,
-            'genero'     => $request->genero,
-        ]);
- 
-        // Redireciona para a listagem
-        return redirect('/produtos');
+        $cl = new Idoso();
+        $cl->nome = $request->input('nome');
+        $cl->peso = $request->input('peso');
+        $cl->altua = $request->input('altura');
+        $cl->dataNascimento = $request->input('dataNascimento');
+
+        $cl->save();
+
+        return redirect()->route('home');
     }
 }
