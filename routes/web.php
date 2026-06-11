@@ -1,127 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\AdminController;
 
-Route::get('/', function () {
-    return view('login/entrada');
-});
-
-Route::get('/cadastro', function () {
-    return view('login/cadastro');
-});
-
-Route::get('/tipo', function () {
-    return view('login/tipoConta');
-});
-
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/relatorios', function () {
-    return view('relatorio/relatorios');
-});
-
-Route::get('/observacao', function () {
-    return view('relatorio/observacao');
-});
-
-Route::get('/acelerometro', function () {
-    return view('relatorio/acelerometro');
-});
-
-Route::get('/configuracoes', function () {
-    return view('configuracoes/configuracoes');
-});
-
-Route::get('/acessibilidade', function () {
-    return view('configuracoes/acessibilidade');
-});
-
-Route::get('/duvidas', function () {
-    return view('login/duvidas');
-});
-
-Route::get('/idiomas', function () {
-    return view('configuracoes/idiomas');
-});
-
-Route::get('/suporte', function () {
-    return view('configuracoes/suporte');
-});
-
-Route::get('/notificacoes', function () {
-    return view('configuracoes/notificacoes');
-});
-
-Route::get('/sobre', function () {
-    return view('configuracoes/sobre/sobre');
-});
-
-Route::get('/politica', function () {
-    return view('configuracoes/sobre/politicaPrivacidade');
-});
-
-Route::get('/sobreConta', function () {
-    return view('configuracoes/sobre/sobreConta');
-});
-
-Route::get('/termos', function () {
-    return view('configuracoes/sobre/termosUso');
-});
-
-Route::get('/perfil', function () {
-    return view('perfil/perfil');
-});
-
-Route::get('/dados', function () {
-    return view('perfil/dados');
-});
-
-Route::get('/editarDados', function () {
-    return view('perfil/editarDados');
-});
-
-Route::get('/gerenciar', function () {
-    return view('perfil/gerenciar');
-});
-
-Route::get('/trocar', function () {
-    return view('perfil/trocar');
-});
-
-Route::get('/senha', function () {
-    return view('perfil/senha');
-});
-
-Route::get('/conectar', function () {
-    return view('pulseira/conectar');
-});
-
-Route::get('/pulseiras', function () {
-    return view('pulseira/pulseira');
-});
-
-Route::get('/cuidador', function () {
-    return view('cadastrar/cuidador');
-});
-
-Route::get('/idoso', function () {
-    return view('cadastrar/idoso');
-});
-
-Route::get('/esqueciSenha', function () {
-    return view('login/esqueciSenha');
-});
-
-Route::get('/esqueciSenha2', function () {
-    return view('login/esqueciSenha2');
-});
-
-Route::get('/notificacoesLista', function () {
-    return view('notificacoes');
-});
-
-Route::get('/homeCuidador', function () {
-    return view('homeCuidador');
-});
+Route::get('/', [WebsiteController::class, 'login/entrada']);
+Route::get('/cadastro', [WebsiteController::class, 'login/cadadstro']);
+Route::get('/tipo', [WebsiteController::class, 'login/tipoConta']);
+Route::get('/home', [WebsiteController::class, 'home']);
+Route::get('/relatorios', [WebsiteController::class, 'relatorio/relatorios']);
+Route::get('/observacao', [WebsiteController::class, 'relatorio/observacao']);
+Route::get('/acelerometro', [WebsiteController::class, 'relatorio/acelerometro']);
+Route::get('/configuracoes', [WebsiteController::class, 'configuracoes/configuracoes']);
+Route::get('/acessibilidade', [WebsiteController::class, 'configuracoes/acessibilidade']);
+Route::get('/duvidas', [WebsiteController::class, 'login/duvidas']);
+Route::get('/suporte', [WebsiteController::class, 'configuracoes/suporte']);
+Route::get('/notificacoes', [WebsiteController::class, 'configuracoes/notificacoes']);
+Route::get('/sobre', [WebsiteController::class, 'configuracoes/sobre/sobre']);
+Route::get('/politica', [WebsiteController::class, 'configuracoes/sobre/politicaPrivacidade']);
+Route::get('/sobreConta', [WebsiteController::class, 'configuracoes/sobre/sobreConta']);
+Route::get('/termos', [WebsiteController::class, 'configuracoes/sobre/termosUso']);
+Route::get('/perfil', [WebsiteController::class, 'perfil/perfil']);
+Route::get('/dados', [WebsiteController::class, 'perfil/dados']);
+Route::get('/editarDados', [WebsiteController::class, 'perfil/editarDados']);
+Route::get('/gerenciar', [WebsiteController::class, 'perfil/gerenciar']);
+Route::get('/trocar', [WebsiteController::class, 'perfil/trocar']);
+Route::get('/senha', [WebsiteController::class, 'perfil/senha']);
+Route::get('/conectar', [WebsiteController::class, 'perfil/conectar']);
+Route::get('/pulseiras', [WebsiteController::class, 'perfil/pulseira']);
+Route::get('/cuidador', [WebsiteController::class, 'cadastrar/cuidador']);
+Route::get('/idoso', [WebsiteController::class, 'cadastrar/idoso']);
+Route::get('/esqueciSenha', [WebsiteController::class, 'login/esqueciSenha']);
+Route::get('/esqueciSenha2', [WebsiteController::class, 'login/esqueciSenha2']);
+Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoes']);
+Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador']);
