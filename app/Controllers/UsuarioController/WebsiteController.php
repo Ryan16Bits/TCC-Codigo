@@ -150,4 +150,154 @@ class WebsiteController extends Controller
 
         return redirect()->route('home');
     }
+
+        public function login()
+    {
+        return view('login/entrada');
+    }
+
+        public function cadastro()
+    {
+        return view('login/cadadstro');
+    }
+
+        public function tipo()
+    {
+        return view('login/tipoConta');
+    }
+
+        public function home()
+    {
+        return view('home');
+    }
+
+        public function relatorios()
+    {
+        return view('relatorio/relatorios');
+    }
+
+        public function observacao()
+    {
+        return view('relatorio/observacao');
+    }
+
+        public function acelerometro()
+    {
+        return view('relatorio/acelerometro');
+    }
+
+        public function configuracoes()
+    {
+        return view('configuracoes/configuracoes');
+    }
+
+        public function acessibilidade()
+    {
+        return view('configuracoes/acessibilidade');
+    }
+
+        public function duvidas()
+    {
+        return view('login/duvidas');
+    }
+
+        public function suporte()
+    {
+        return view('configuracoes/suporte');
+    }
+
+        public function notificacoes()
+    {
+        return view('configuracoes/notificacoes');
+    }
+
+        public function sobre()
+    {
+        return view('configuracoes/sobre/sobre');
+    }
+
+        public function politica()
+    {
+        return view('configuracoes/sobre/politicaPrivacidade');
+    }
+
+        public function sobreConta()
+    {
+        return view('configuracoes/sobre/sobreConta');
+    }
+
+        public function termos()
+    {
+        return view('configuracoes/sobre/termosUso');
+    }
+
+        public function perfil()
+    {
+        return view('perfil/perfil');
+    }
+
+        public function dados()
+    {
+        return view('perfil/dados');
+    }
+
+        public function editarDados()
+    {
+        return view('perfil/editarDados');
+    }
+
+        public function gerenciar()
+    {
+        return view('perfil/gerenciar');
+    }
+
+        public function trocar()
+    {
+        return view('perfil/trocar');
+    }
+
+        public function senha()
+    {
+        return view('perfil/senha');
+    }
+
+        public function conectar()
+    {
+        return view('perfil/conectar');
+    }
+
+        public function pulseira()
+    {
+        return view('perfil/pulseira');
+    }
+
+        public function cuidador()
+    {
+        return view('cadastrar/cuidador');
+    }
+
+        public function idoso()
+    {
+        return view('cadastrar/idoso');
+    }
+
+        public function esqueciSenha()
+    {
+        return view('login/esqueciSenha');
+    }
+
+        public function esqueciSenha2()
+    {
+        return view('login/esqueciSenha2');
+    }
+
+        public function notificacoesLista()
+    {
+        return view('notificacoes');
+    }
+
+        public function homeCuidador()
+    {
+        return view('homeCuidador');
+    }
 }
