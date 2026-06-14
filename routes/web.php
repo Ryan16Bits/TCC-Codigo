@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController\WebsiteController;
 use App\Http\Controllers\AdminController\AdminController;
 
+Route::get('/', function() {
+    return 'Funcionando!';
+});
+
+// Teste
+/*
 Route::get('/', [WebsiteController::class, 'login']);
 Route::post('/', [WebsiteController::class, 'login'])->name('login.post');
 Route::get('/cadastro', [WebsiteController::class, 'cadadstro']);
@@ -36,3 +42,5 @@ Route::get('/esqueciSenha', [WebsiteController::class, 'esqueciSenha']);
 Route::get('/esqueciSenha2', [WebsiteController::class, 'esqueciSenha2']);
 Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista']);
 Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador']);
+// Teste
+*/
