@@ -19,7 +19,7 @@
 
                     <div class="card-body p-4 bg-custom-card">
 
-                        <form class="list" method="post" action="tipo">
+                        <form class="list" method="post" action="{{ route('cadastro.post) }}">
 
                             <!-- Email -->
                             <div class="mb-3">
