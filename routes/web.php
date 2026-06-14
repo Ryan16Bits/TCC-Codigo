@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UsuarioController\WebsiteController;
+use App\Http\Controllers\AdminController\AdminController;
 
 Route::get('/', [WebsiteController::class, 'login']);
 Route::post('/', [WebsiteController::class, 'login'])->name('login.post');
