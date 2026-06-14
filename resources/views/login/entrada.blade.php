@@ -19,7 +19,7 @@
 
                     <div class="card-body p-4 bg-custom-card">
 
-                        <form>
+                        <form class="list" method="post" action="{{ route('login.post) }}">
 
                             <!-- Email -->
                             <div class="mb-3">
