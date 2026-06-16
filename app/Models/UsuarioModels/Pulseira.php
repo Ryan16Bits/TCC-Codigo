@@ -1,13 +1,14 @@
 <?php
  
-namespace App\Models;
+namespace App\Models\UsuarioModels;
  
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
  
-class Pulseira extends Model
+class Pulseira extends Authenticatable
 {
     protected $table = 'pulseira';
-    // Campos que podem ser salvos no banco
+    protected $primaryKey = 'idPulseira';
+
     protected $fillable = [
         'nomePulseira', 
         'codigo'];
