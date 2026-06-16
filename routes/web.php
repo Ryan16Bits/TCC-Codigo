@@ -5,9 +5,9 @@ use App\Http\Controllers\UsuarioController\WebsiteController;
 use App\Http\Controllers\AdminController\AdminController;
 
 Route::get('/', [WebsiteController::class, 'login']);
-Route::post('/', [WebsiteController::class, 'login'])->name('login.post');
-Route::get('/cadastro', [WebsiteController::class, 'cadastro']);
-Route::post('/cadastro', [WebsiteController::class, 'cadastro'])->name('cadastro.post');
+Route::post('/', [WebsiteController::class, 'logar'])->name('login.post');
+Route::get('/cadastro', [WebsiteController::class, 'cadadstro']);
+Route::post('/cadastro', [WebsiteController::class, 'cadastrar'])->name('cadastro.post');
 Route::get('/tipo', [WebsiteController::class, 'tipo']);
 Route::get('/home', [WebsiteController::class, 'home']);
 Route::get('/relatorios', [WebsiteController::class, 'relatorios']);
