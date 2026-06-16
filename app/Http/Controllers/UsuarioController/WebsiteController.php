@@ -158,7 +158,7 @@ class WebsiteController extends Controller
 
         public function cadastro()
     {
-        return view('login.cadadstro');
+        return view('login.cadastro');
     }
 
         public function tipo()
