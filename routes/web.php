@@ -32,6 +32,7 @@ Route::get('/conectar', [WebsiteController::class, 'conectar']);
 Route::get('/pulseiras', [WebsiteController::class, 'pulseira']);
 Route::get('/cuidador', [WebsiteController::class, 'cuidador']);
 Route::get('/idoso', [WebsiteController::class, 'idoso']);
+Route::post('/idoso', [WebsiteController::class, 'cadastrarIdoso'])->name('idoso.post');
 Route::get('/esqueciSenha', [WebsiteController::class, 'esqueciSenha']);
 Route::get('/esqueciSenha2', [WebsiteController::class, 'esqueciSenha2']);
 Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista']);
