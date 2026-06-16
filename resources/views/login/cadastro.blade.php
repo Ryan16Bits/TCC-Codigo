@@ -40,13 +40,13 @@
 
                             <!-- Botão -->
                             <div class="d-grid mb-3">
-                                <a class="btn btn-custom btn-custom:hover btn-lg" role="button" type="submit">Cadastrar</a>
+                                <button class="btn btn-custom btn-custom:hover btn-lg" type="submit">Cadastrar</button>
                             </div>
                             
                             <div class="d-grid mb-3 text-center">
                                 <hr>
                                 <p class="txt-small">Já possui conta?</p>
-                                <a class="btn btn-custom btn-custom:hover btn-lg" href="login" role="button">Login</a>
+                                <a class="btn btn-custom btn-custom:hover btn-lg" href="/" role="button">Login</a>
                             </div>                            
                         </form>
                     </div>
