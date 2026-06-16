@@ -1,17 +1,19 @@
 <?php
  
-namespace App\Models;
+namespace App\Models\UsuarioModels;
  
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
  
-class Idoso extends Model
+class Idoso extends Authenticatable
 {
     protected $table = 'idoso';
-    // Campos que podem ser salvos no banco
+    protected $primaryKey = 'idIdoso';
+    
     protected $fillable = [
         'nome', 
         'peso',
         'altura',
-        'dataNascimento'];
+        'dataNascimento',
+        'genero'];
 }
  
