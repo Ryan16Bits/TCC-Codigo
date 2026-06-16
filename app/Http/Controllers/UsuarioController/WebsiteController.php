@@ -54,7 +54,7 @@ class WebsiteController extends Controller
                 ->withInput();
             }
 
-        if ($request->filled('confirmar_senha') && $request->input('senha') !== $request->input('confirmar_senha')) {
+        if ($request->filled('confirmarSenha') && $request->input('senha') !== $request->input('confirmarSenha')) {
             return redirect()->back()->with('error', 'As senhas não coincidem!')->withInput();
             }
  
