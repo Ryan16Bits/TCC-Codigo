@@ -1,12 +1,13 @@
 <?php
  
-namespace App\Models;
+namespace App\Models\UsuarioModels;
  
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
  
-class Cuidador extends Model
+class Cuidador extends Authenticatable
 {
     protected $table = 'pulseira_cuidador';
+    protected $primaryKey ='idCuidador';
 
     protected $fillable = [
         'nome', 
