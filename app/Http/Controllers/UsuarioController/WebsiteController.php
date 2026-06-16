@@ -2,10 +2,10 @@
  
 namespace App\Http\Controllers\UsuarioController;
  
-use App\Models\Usuario;
-use App\Models\Idoso;
-use App\Models\Pulseira;
-use App\Models\Cuidador;
+use App\Models\UsuarioModels\Usuario;
+use App\Models\UsuarioModels\Idoso;
+use App\Models\UsuarioModels\Pulseira;
+use App\Models\UsuarioModels\Cuidador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -41,7 +41,7 @@ class WebsiteController extends Controller
         // Validação básica dos campos
         $validator = Validator::make($request->all(), [
             'nome'      => 'nullable|string|max:255',
-            'email'     => 'required|email|unique',
+            'email'     => 'required|email|unique:usuario,email',
             'telefone'  => 'nullable|string|max:30',
             'senha'     => 'required|min:6',
             'dataNascimento'  => 'nullable',
@@ -50,7 +50,7 @@ class WebsiteController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-                ->withErrors($validate)
+                ->withErrors($validator)
                 ->withInput();
             }
 
@@ -80,19 +80,21 @@ class WebsiteController extends Controller
             'peso'     => 'nullable|string',
             'altura'   => 'nullable|string',
             'dataNascimento'  => 'nullable|datetime',
+            'genero'   => 'nullable|int'
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-                ->withErrors($validate)
+                ->withErrors($validator)
                 ->withInput();
             }
  
         $i = new Idoso();
         $i->nome = $request->input('nome');
         $i->peso = $request->input('peso');
-        $i->altua = $request->input('altura');
+        $i->altura = $request->input('altura');
         $i->dataNascimento = $request->input('dataNascimento');
+        $i->genero = $request->input('genero');
 
         $i->save();
 
@@ -110,7 +112,7 @@ class WebsiteController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-                ->withErrors($validate)
+                ->withErrors($validator)
                 ->withInput();
         }
 
