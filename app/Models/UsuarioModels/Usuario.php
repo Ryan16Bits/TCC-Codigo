@@ -1,12 +1,13 @@
 <?php
  
-namespace App\Models;
+namespace App\Models\UsuarioModels;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
  
-use Illuminate\Database\Eloquent\Model;
- 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-    protected $table = 'usuarios';
+    protected $table = 'usuario';
+    protected $primaryKey = 'idUsuario';
 
     protected $fillable = [
         'nome',
