@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController\WebsiteController;
 use App\Http\Controllers\AdminController\AdminController;
+use App\Http\Controllers\RelatorioController;
 
 Route::get('/', [WebsiteController::class, 'login'])->name('login');
 Route::post('/', [WebsiteController::class, 'logar'])->name('login.post');
@@ -40,4 +41,4 @@ Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista']
 Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador'])->name('homeCuidador');
 
 
-//Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
+Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
