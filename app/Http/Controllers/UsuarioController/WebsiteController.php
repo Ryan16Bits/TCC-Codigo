@@ -178,7 +178,7 @@ class WebsiteController extends Controller
         if (Auth::attempt(['email' => $request->email, 'senha' => $request->senha])) {
             $request->session()->regenerate();
 
-            return redirect()->route('home');
+            return redirect()->route('tipo');
         }
 
         return redirect()->back()
@@ -219,7 +219,7 @@ class WebsiteController extends Controller
 
         Auth::login($u);
 
-        return redirect()->route('home');
+        return redirect()->route('tipo');
     }
 
         public function cadastrarIdoso(Request $request)
