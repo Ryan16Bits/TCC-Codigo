@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('convite', function (Blueprint $table) {
-            $table->id();
+            $table->id('idConvite');
+            $table->string('email')->unique();
+            $table->string('token', 64)->unique();
+            $table->timestamp('expiraEm')->nullable();
+            $table->timestamp('aceitoEm')->nullable();
+            $table->unsignedBigInteger('convidadoPor');
             $table->timestamps();
+            $table->foreign('convidadoPor')->references('idUsuario')->on('usuario')->onDelete('cascade');
         });
     }
 
