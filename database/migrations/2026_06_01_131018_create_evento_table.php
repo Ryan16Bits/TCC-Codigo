@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pulseira_cuidador', function (Blueprint $table) {
-            $table->id('idCuidador');
-            $table->string('nome');
-            $table->string('email');
-            $table->string('telefone');
-            $table->string('senha');
-            $table->enum('status', ['ativo', 'desativo', 'suspenso']);
-            $table->timestamps();
+        Schema::create('evento', function (Blueprint $table) {
+            $table->id('idEvento');
+            $table->dateTime('data', precision: 0);
+            $table->dateTime('dataVizualizacao', precision: 0);
+            $table->enum('status', ['queda', 'bateria 10%', 'descarregado', 'sem conexão']);
             $table->unsignedBigInteger('idPulseira');
             $table->foreign('idPulseira')->references('idPulseira')->on('pulseira')->onDelete('cascade');
         });
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pulseira_cuidador');
+        Schema::dropIfExists('evento');
     }
 };

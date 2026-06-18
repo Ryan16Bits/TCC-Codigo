@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id('idRelatorio');
             $table->dateTime('data', precision: 0);
             $table->string('observacao');
-            $table->foreignId('idPulseira')->constrained('create_pulseira_table')->cascadeOnDelete();
-            $table->foreignId('idEvento')->constrained('create_evento_table')->cascadeOnDelete();
+            $table->unsignedBigInteger('idPulseira');
+            $table->unsignedBigInteger('idEvento');
+            $table->foreign('idPulseira')->references('idPulseira')->on('pulseira')->onDelete('cascade');
+            $table->foreign('idEvento')->references('idEvento')->on('evento')->onDelete('cascade');
         });
     }
 

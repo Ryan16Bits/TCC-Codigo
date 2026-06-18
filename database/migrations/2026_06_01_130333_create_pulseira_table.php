@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pulseira', function (Blueprint $table) {
             $table->id('idPulseira');
             $table->string('nomePulseira');
+            $table->string('codigo');
             $table->enum('status', ['ativo', 'desativo', 'suspenso']);
             $table->enum('bateria', ['carregado', 'descarregando', 'descarregado']);
         });
