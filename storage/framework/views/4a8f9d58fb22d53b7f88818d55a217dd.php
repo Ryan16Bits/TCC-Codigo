@@ -1,5 +1,4 @@
-@extends("login/index")
-@section("conteudo")
+<?php $__env->startSection("conteudo"); ?>
 <main class="bg-custom d-flex align-items-center">
 
     <div class="container">
@@ -19,23 +18,23 @@
 
                     <div class="card-body p-4 bg-custom-card">
 
-                        <form class="list" method="post" action="{{ route('cadastro.post') }}">
+                        <form class="list" method="post" action="<?php echo e(route('cadastro.post')); ?>">
 
                             <!-- Email -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Email</label>
-                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" value="{{isset($cadastro) ? $cadastro->email : ''}}" require/>
+                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" value="<?php echo e(isset($cadastro) ? $cadastro->email : ''); ?>" require/>
                             </div>
                             
                             <!-- Senha -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Senha</label>
-                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" value="{{isset($cadastro) ? $cadastro->senha : ''}}" require/>
+                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" value="<?php echo e(isset($cadastro) ? $cadastro->senha : ''); ?>" require/>
                             </div>
                             
                             <div class="mb-3">
                                 <label class="form-label txt-small">Repetir Senha</label>
-                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha novamente..." name="senha" value="{{isset($cadastro) ? $cadastro->senha : ''}}" require/>
+                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha novamente..." name="senha" value="<?php echo e(isset($cadastro) ? $cadastro->senha : ''); ?>" require/>
                             </div>
 
                             <!-- Botão -->
@@ -56,4 +55,5 @@
     </div>
 </main>
 </html>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("login/index", array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\TCC\resources\views/login/cadastro.blade.php ENDPATH**/ ?>

@@ -1,5 +1,4 @@
-@extends("login/index")
-@section("conteudo")
+<?php $__env->startSection("conteudo"); ?>
 <main class="bg-custom d-flex align-items-center">
 
     <div class="container">
@@ -19,7 +18,7 @@
 
                     <div class="card-body p-4 bg-custom-card">
 
-                        <form class="list" method="post" action="{{ route('login.post') }}">
+                        <form class="list" method="post" action="<?php echo e(route('login.post')); ?>">
 
                             <!-- Email -->
                             <div class="mb-3">
@@ -61,4 +60,5 @@
         </div>
     </div>
 </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("login/index", array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\TCC\resources\views/login/entrada.blade.php ENDPATH**/ ?>

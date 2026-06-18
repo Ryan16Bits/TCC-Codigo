@@ -1,5 +1,5 @@
-@extends("index")
-@section("conteudo")
+
+<?php $__env->startSection("conteudo"); ?>
 
 <main class="container mt-5">
 
@@ -168,4 +168,5 @@
     </div>
 
 </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("index", array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\TCC\resources\views/cadastrar/cuidador.blade.php ENDPATH**/ ?>
