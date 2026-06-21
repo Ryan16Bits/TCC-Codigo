@@ -222,7 +222,7 @@ class WebsiteController extends Controller
         return redirect()->route('tipo');
     }
 
-        public function cadastrarIdoso(Request $request)
+    public function cadastrarIdoso(Request $request)
     {
         // Validação básica dos campos
         $validator = Validator::make($request->all(), [
@@ -251,7 +251,7 @@ class WebsiteController extends Controller
         return redirect()->route('idoso');
     }
 
-        public function cadastrarCuidador(Request $request)
+    public function cadastrarCuidador(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'nome'      => 'required|string|max:255',
@@ -279,7 +279,7 @@ class WebsiteController extends Controller
         return redirect()->route('home');
     }
 
-        public function cadastrarPulseira(Request $request)
+    public function cadastrarPulseira(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'nome'      => 'required|string|max:255',
@@ -301,5 +301,19 @@ class WebsiteController extends Controller
         Auth::login($p);
 
         return redirect()->route('home');
+    }
+
+    public function mandarConvite(Request $request)
+    {
+        $convite = Convite::create([
+            'email' => 'convidado@email.com',
+            'token' => Convite::generateToken(),
+            'expiraEm' => now()->addDays(7),
+            'convidadoPor' => auth()->id(),
+        ])
+
+        Mail::to($invite->email)->send(new ConviteEmail($convite));
+
+        return redirect()->back()->with('success', 'Covnite enviado!');
     }
 }
