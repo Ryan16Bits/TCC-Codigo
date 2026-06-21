@@ -164,6 +164,11 @@ class WebsiteController extends Controller
         return view('homeCuidador');
     }
 
+        public function convite()
+    {
+        return view('email.convite');
+    }
+
     public function logar(Request $request)
     {
         $validator = Validator::make($request->all(), [
