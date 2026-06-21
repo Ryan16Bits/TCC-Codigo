@@ -39,6 +39,6 @@ Route::get('/esqueciSenha', [WebsiteController::class, 'esqueciSenha'])->name('e
 Route::get('/esqueciSenha2', [WebsiteController::class, 'esqueciSenha2'])->name('esqueciSenha2');
 Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista'])->name('notificacoesLista');
 Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador'])->name('homeCuidador');
-
+Route::get('/convite', [WebsiteController::class, 'convite'])->name('convite');
 
 Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
