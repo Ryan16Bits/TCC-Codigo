@@ -9,13 +9,12 @@
         <div class="content">
             <h2>Olá!</h2>
             
-            <p>Você recebeu um convite para criar uma conta em <strong>{{ config('app.name') }}</strong>.</p>
+            <p>Você recebeu um convite para criar uma conta em <strong>Safe Watch</strong>.</p>
             
             <div class="invite-info">
-                <p><strong>📧 Email:</strong> {{ $invite->email }}</p>
-                <p><strong>👤 Papel:</strong> {{ ucfirst($invite->role) }}</p>
-                @if($invite->expires_at)
-                    <p><strong>⏰ Expira em:</strong> {{ $invite->expires_at->format('d/m/Y H:i') }}</p>
+                <p><strong>📧 Email:</strong> {{ $convite->email }}</p>
+                @if($convite->expiraEm)
+                    <p><strong>⏰ Expira em:</strong> {{ $convite->expiraEm->format('d/m/Y H:i') }}</p>
                 @endif
             </div>
             
@@ -55,11 +54,11 @@
         <div class="footer">
             <p>
                 Se você não esperava por este convite, pode ignorar este email.<br>
-                Este convite expirará em {{ $invite->expires_at ? $invite->expires_at->diffForHumans() : '7 dias' }}.
+                Este convite expirará em {{ $convite->expiraEm ? $convite->expiraEm->diffForHumans() : '7 dias' }}.
             </p>
             <p>
                 <small>
-                    {{ config('app.name') }} - 
+                    Safe Watch - 
                     <a href="{{ route('home') }}">{{ config('app.url') }}</a>
                 </small>
             </p>
