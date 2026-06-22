@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Convite;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -17,13 +18,13 @@ class ConviteMail extends Mailable
     public $convite;
     public $convidadorNome;
 
-    public funcion __construct(Convite $convite)
+    public function __construct(Convite $convite)
     {
         $this->convite = $convite;
         $this->convidadorNome = $convite>convidador->name ?? 'Administrador';
     }
 
-    public funcion envelope(): Envelope
+    public function envelope(): Envelope
     {
         return new Envelope(
             subject: 'Você foi convidado para criar uma nova conta!',
