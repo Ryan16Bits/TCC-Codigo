@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invite;
-use App\Models\User;
-use App\Mail\InviteEmail;
+use App\Models\Convite;
+use App\Models\Usuario;
+use App\Mail\ConviteEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -25,28 +25,40 @@ class ConviteController extends Controller
                 'message' => 'Este email já está cadastrado no sistema.'
             ], 422);
         }
+    
+
+        $convite = Convite::create([
+            'email' => $validated['email'],
+            'token' => Convite::generateToken(),
+            'expiraEm' => now()->addDays($validated['expiraEmDias'] ?? 7),
+            'convidadorPor' => auth()->id(),
+        ]);
+
+        try {
+            Mail::to($convite->email)->send(new ConviteEmail($convite));
+
+            return response()->json([
+                'message' => 'Convite enviado com sucesso!',
+                'invite' => $convite
+        
+            ], 201);
+        } catch (\Exception $e) {
+            $convite->delete();
+            return response()->json([
+                'message' => 'Erro ao enviar email: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
-    $convite = Convite::create([
-        'email' => $validated['email'],
-        'token' => Convite::generateToken(),
-        'expiraEm' => now()->addDays($validated['expiraEmDias'] ?? 7)
-        'convidadorPor' => auth()->id(),
-    ]);
+    public function mostrarFormulárioAceitação($token)
+    {
+        $convite = Convite::where('token', $token)->firstOrFail();
 
-    try {
-        Mail::to($convite->email)->send(new ConviteEmail($convite));
+        if (!$convite->isValid()) {
+            abort(410, 'Este convite expirou ou já foi utilizado.');
+        }
 
-        return response()->json([
-            'message' => 'Convite enviado com sucesso!',
-            'invite' => $convite
-        
-        ], 201);
-    } catch (\Exception $e) {
-        $convite->delete();
-        return response()->json([
-            'message' => 'Erro ao enviar email: ' . $e->getMessage()
-        ], 500);
+        return view('registrarConvite');
     }
 
     public function aceitarConvite(Request $request, $token)

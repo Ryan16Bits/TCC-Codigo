@@ -14,7 +14,6 @@ class SensorController extends Controller
     // ============================================================
     public function salvarLeitura(Request $request)
     {
-    dd("ENTROU NO SALVAR LEITURA");
         $dados = $request->validate([
             'idDispositivo' => 'required|integer|exists:dispositivos,idDispositivo',
             'acelX'         => 'required|numeric',
