@@ -4,7 +4,6 @@
     <div class="container">
         <div class="header">
             <h1>🎉 Você foi convidado!</h1>
-            <p>{{ $inviterName }} te convidou para se juntar à plataforma</p>
         </div>
         
         <div class="content">
