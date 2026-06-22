@@ -12,12 +12,14 @@
             <p>Você recebeu um convite para criar uma conta em <strong>Safe Watch</strong>.</p>
             
             <div class="invite-info">
-                <p><strong>📧 Email:</strong> X</p>
-                <p><strong>⏰ Expira em:</strong> X</p>
+                <p><strong>📧 Email:</strong> {{ $convite->email }}</p>
+                @if($convite->expiraEm)
+                    <p><strong>⏰ Expira em:</strong> {{ $convite->expiraEm->format('d/m/Y H:i') }}</p>
+                @endif
             </div>
             
             <div class="btn-container">
-                <a href="X" class="btn">
+                <a href="{{ route('registrarConvite', $convite->token) }}" class="btn">
                     Criar minha conta
                 </a>
             </div>
@@ -52,12 +54,12 @@
         <div class="footer">
             <p>
                 Se você não esperava por este convite, pode ignorar este email.<br>
-                Este convite expirará em X.
+                Este convite expirará em {{ $convite->expiraEm ? $convite->expiraEm->diffForHumans() : '7 dias' }}.
             </p>
             <p>
                 <small>
                     Safe Watch - 
-                    <a href="{{ route('home') }}">A</a>
+                    <a href="{{ route('home') }}"></a>
                 </small>
             </p>
         </div>
