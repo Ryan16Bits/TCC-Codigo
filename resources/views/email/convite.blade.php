@@ -12,10 +12,8 @@
             <p>Você recebeu um convite para criar uma conta em <strong>Safe Watch</strong>.</p>
             
             <div class="invite-info">
-                <p><strong>📧 Email:</strong> {{ $convite->email }}</p>
-                @if($convite->expiraEm)
-                    <p><strong>⏰ Expira em:</strong> {{ $convite->expiraEm->format('d/m/Y H:i') }}</p>
-                @endif
+                <p><strong>📧 Email:</strong> X</p>
+                <p><strong>⏰ Expira em:</strong> X</p>
             </div>
             
             <div class="btn-container">
