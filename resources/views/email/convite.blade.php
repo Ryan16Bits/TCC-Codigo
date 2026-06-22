@@ -52,12 +52,12 @@
         <div class="footer">
             <p>
                 Se você não esperava por este convite, pode ignorar este email.<br>
-                Este convite expirará em {{ $convite->expiraEm ? $convite->expiraEm->diffForHumans() : '7 dias' }}.
+                Este convite expirará em X.
             </p>
             <p>
                 <small>
                     Safe Watch - 
-                    <a href="{{ route('home') }}">{{ config('app.url') }}</a>
+                    <a href="{{ route('home') }}">A</a>
                 </small>
             </p>
         </div>
