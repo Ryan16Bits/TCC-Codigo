@@ -315,7 +315,7 @@ class WebsiteController extends Controller
             'token' => Convite::generateToken(),
             'expiraEm' => now()->addDays(7),
             'convidadoPor' => auth()->id(),
-        ])
+        ]);
 
         Mail::to($invite->email)->send(new ConviteEmail($convite));
 
