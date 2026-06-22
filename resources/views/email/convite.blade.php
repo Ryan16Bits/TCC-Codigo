@@ -17,7 +17,7 @@
             </div>
             
             <div class="btn-container">
-                <a href="{{ route('invite.accept', $invite->token) }}" class="btn">
+                <a href="X" class="btn">
                     Criar minha conta
                 </a>
             </div>
