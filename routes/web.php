@@ -40,8 +40,8 @@ Route::get('/esqueciSenha2', [WebsiteController::class, 'esqueciSenha2'])->name(
 Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista'])->name('notificacoesLista');
 Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador'])->name('homeCuidador');
 
-Route::get('/convite', [WebsiteController::class, 'convite'])->name('convite');
-Route::post('/convite/{token}', [ConviteController::class, '']);
+//Route::get('/convite', [WebsiteController::class, 'convite'])->name('convite');
+Route::get('/convite/{token}', [ConviteController::class, '']);
 Route::get('/convite/registrar', [ConviteController:: class, 'registrarConvite'])->name('registrarConvite');
 
 Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
