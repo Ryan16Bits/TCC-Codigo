@@ -52,7 +52,7 @@ class ConviteController extends Controller
         }
     }
 
-    public function mostrarFormulárioAceitação($token)
+    public function mostrarFormularioAceitacao($token)
     {
         $convite = Convite::where('token', $token)->firstOrFail();
 
@@ -60,7 +60,7 @@ class ConviteController extends Controller
             abort(410, 'Este convite expirou ou já foi utilizado.');
         }
 
-        return view('registrarConvite');
+        return view('convite');
     }
 
     public function aceitarConvite(Request $request, $token)

@@ -168,11 +168,6 @@ class WebsiteController extends Controller
         return view('email.convite');
     }
 
-        public function registrarConvite()
-    {
-        return view('auth.convite-registrar');
-    }
-
     public function logar(Request $request)
     {
         $validator = Validator::make($request->all(), [
