@@ -19,7 +19,7 @@
             </div>
             
             <div class="btn-container">
-                <a href="{{ route('registrarConvite', $convite->token) }}" class="btn">
+                <a href="{{ route('convite', $convite->token) }}" class="btn">
                     Criar minha conta
                 </a>
             </div>

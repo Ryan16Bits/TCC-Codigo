@@ -41,7 +41,7 @@
 
                             <!-- Botão -->
                             <div class="d-grid mb-3">
-                                <button class="btn btn-custom btn-custom:hover btn-lg" role="button">Login</button>
+                                <button class="btn btn-custom btn-custom:hover btn-lg" type="submit">Login</button>
                             </div>
 
                             <!-- Links -->

@@ -149,11 +149,13 @@
 
                     <div class="d-flex gap-2 mt-3 mt-md-0">
 
+                        <form class="list" method="post" action="{[ route('convite.enviar') }}">
+
                         <input type="email"
                             class="form-control"
                             placeholder="Digite seu e-mail">
 
-                        <button class="btn btn-custom px-4">
+                        <button class="btn btn-custom px-4" type="submit">
                             <i class="fa-regular fa-paper-plane"></i>
                             Enviar
                         </button>

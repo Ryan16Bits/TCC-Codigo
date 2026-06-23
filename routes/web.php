@@ -32,7 +32,6 @@ Route::get('/senha', [WebsiteController::class, 'senha'])->name('senha');
 Route::get('/conectar', [WebsiteController::class, 'conectar'])->name('conectar');
 Route::get('/pulseiras', [WebsiteController::class, 'pulseira'])->name('pulseira');
 Route::get('/cuidador', [WebsiteController::class, 'cuidador'])->name('cuidador');
-Route::post('/cuidador', [WebsiteController::class, 'cadastrarCuidador'])->name('cuidador.post');
 Route::get('/idoso', [WebsiteController::class, 'idoso'])->name('idoso');
 Route::post('/idoso', [WebsiteController::class, 'cadastrarIdoso'])->name('idoso.post');
 Route::get('/esqueciSenha', [WebsiteController::class, 'esqueciSenha'])->name('esqueciSenha');
@@ -40,8 +39,9 @@ Route::get('/esqueciSenha2', [WebsiteController::class, 'esqueciSenha2'])->name(
 Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista'])->name('notificacoesLista');
 Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador'])->name('homeCuidador');
 
-//Route::get('/convite', [WebsiteController::class, 'convite'])->name('convite');
-Route::get('/convite/{token}', [ConviteController::class, '']);
-Route::get('/convite/registrar', [ConviteController:: class, 'registrarConvite'])->name('registrarConvite');
+Route::get('/convite/{token}', [ConviteController::class, 'convite'])->name('convite');
+Route::middleware(['auth'])->group(function () {
+    Route::post('/cuidador', [ConviteController::class, 'enviarConvite'])->name('convite.enviar');
+});
 
 Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
