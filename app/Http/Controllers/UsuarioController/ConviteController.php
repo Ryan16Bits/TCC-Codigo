@@ -22,7 +22,7 @@ class ConviteController extends Controller
             'expiraEmDias' => 'nullable|integer|min:1|max:30',
         ]);
 
-        if (User::where('email', $validated['email'])->exists()) {
+        if (Usuario::where('email', $validated['email'])->exists()) {
             return response()->json([
                 'message' => 'Este email já está cadastrado no sistema.'
             ], 422);
