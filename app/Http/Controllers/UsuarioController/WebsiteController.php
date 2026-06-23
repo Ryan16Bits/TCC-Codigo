@@ -5,7 +5,6 @@ namespace App\Http\Controllers\UsuarioController;
 use App\Models\UsuarioModels\Usuario;
 use App\Models\UsuarioModels\Idoso;
 use App\Models\UsuarioModels\Pulseira;
-use App\Models\UsuarioModels\Cuidador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -259,34 +258,6 @@ class WebsiteController extends Controller
         $i->save();
 
         return redirect()->route('idoso');
-    }
-
-    public function cadastrarCuidador(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'nome'      => 'required|string|max:255',
-            'email'     => 'required|email|unique',
-            'telefone'  => 'required|string|max:30',
-            'senha'     => 'required|min:6'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $c = new Cuidador();
-        $c->nome = $request->input('nome');
-        $c->email = $request->input('email', explode('@', $request->input('email'))[0]);
-        $c->telefone = $request->input('telefone');
-        $c->senha = Hash::make($request->input('senha'));
-
-        $c->save();
-
-        Auth::login($c);
-
-        return redirect()->route('home');
     }
 
     public function cadastrarPulseira(Request $request)

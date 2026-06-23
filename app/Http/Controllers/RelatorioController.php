@@ -13,7 +13,7 @@ class RelatorioController extends Controller
     // Tela de relatório — gráfico de quedas + histórico + última leitura
     // Reaproveita as tabelas leitura_sensores e quedas_detectadas
     // que já são alimentadas pela API (rotas/api.php)
-    // ============================================================
+    // ============================================================  
     public function index(Request $request)
     {
         // Filtro de período vindo dos botões (7 dias / mês / ano)

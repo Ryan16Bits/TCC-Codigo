@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Convite;
-use App\Models\Usuario;
+use App\Models\UsuarioModels\Convite;
+use App\Models\UsuarioModels\Usuario;
+use App\Models\UsuarioModels\Cuidador;
 use App\Mail\ConviteEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -77,12 +79,26 @@ class ConviteController extends Controller
             ], 422);
         }
 
-        //COLOCAR A CONEXÃO COM O CUIDADOR AQUI
+        $validator = Validator::make($request->all(), [
+            'nome'      => 'required|string|max:255',
+            'email'     => 'required|email|unique',
+            'telefone'  => 'required|string|max:30',
+            'senha'     => 'required|min:6'
+        ]);
+
+        $c = new Cuidador();
+        $c->nome = $request->input('nome');
+        $c->email = $request->input('email', explode('@', $request->input('email'))[0]);
+        $c->telefone = $request->input('telefone');
+        $c->senha = Hash::make($request->input('senha'));
+
+        $c->save();
 
         $convite->markAsAccepted();
 
-        auth()->login//USUARIO
+        Auth::login($c);
 
-        return redirect()->route//PAGINA DE LOGIN
+        return redirect()->route('home')
+            ->with('success', 'Conta criada com sucesso! Bem-vindo(a)!');
     }
 }
