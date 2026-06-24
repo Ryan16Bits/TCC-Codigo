@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\Convite;
+use App\Models\UsuarioModels\Convite;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,17 +11,15 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ConviteMail extends Mailable
+class ConviteEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $convite;
-    public $convidadorNome;
 
     public function __construct(Convite $convite)
     {
         $this->convite = $convite;
-        $this->convidadorNome = $convite>convidador->name ?? 'Administrador';
     }
 
     public function envelope(): Envelope
@@ -31,9 +29,9 @@ class ConviteMail extends Mailable
         );
     }
 
-    public function content(): Conteudo
+    public function content(): Content
     {
-        return new Conteudo(
+        return new Content(
             view: 'email.convite',
         );
     }
