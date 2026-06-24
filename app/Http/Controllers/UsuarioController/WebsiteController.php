@@ -5,10 +5,13 @@ namespace App\Http\Controllers\UsuarioController;
 use App\Models\UsuarioModels\Usuario;
 use App\Models\UsuarioModels\Idoso;
 use App\Models\UsuarioModels\Pulseira;
+use App\Models\UsuarioModels\Convite;
+use App\Mail\ConviteEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
  
 class WebsiteController extends Controller
 {
@@ -291,13 +294,13 @@ class WebsiteController extends Controller
     public function mandarConvite(Request $request)
     {
         $convite = Convite::create([
-            'email' => 'convidado@email.com',
-            'token' => Convite::generateToken(),
+            'email' => 'hello@example.com',
+            'token' => Convite::gerarToken(),
             'expiraEm' => now()->addDays(7),
             'convidadoPor' => auth()->id(),
         ]);
 
-        Mail::to($invite->email)->send(new ConviteEmail($convite));
+        Mail::to($convite->email)->send(new ConviteEmail($convite));
 
         return redirect()->back()->with('success', 'Convite enviado!');
     }
