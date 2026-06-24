@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController\WebsiteController;
+use App\Http\Controllers\UsuarioController\ConviteController;
 use App\Http\Controllers\AdminController\AdminController;
 use App\Http\Controllers\RelatorioController;
 
@@ -41,7 +42,7 @@ Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador'])->name('h
 
 Route::get('/convite/{token}', [ConviteController::class, 'convite'])->name('convite');
 Route::middleware(['auth'])->group(function () {
-    Route::post('/cuidador', [ConviteController::class, 'enviarConvite'])->name('convite.enviar');
+    Route::post('/cuidador', [WebsiteController::class, 'mandarConvite'])->name('convite.enviar');
 });
 
 Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
