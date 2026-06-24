@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsuarioController;
 
 use App\Models\UsuarioModels\Convite;
 use App\Models\UsuarioModels\Usuario;
