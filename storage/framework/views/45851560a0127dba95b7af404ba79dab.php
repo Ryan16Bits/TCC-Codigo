@@ -23,13 +23,13 @@
                             <!-- Email -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Email</label>
-                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" />
+                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" value="<?php echo e(isset($entrada) ? $entrada->email : ''); ?>" required/>
                             </div>
 
                             <!-- Senha -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Senha</label>
-                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" />
+                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" value="<?php echo e(isset($entrada) ? $entrada->senha : ''); ?>" required/>
                             </div>
                             
                             <!-- Lembrar -->
@@ -38,16 +38,24 @@
                                 <label class="form-check-label txt-small">Lembrar de mim</label>
                             </div>
 
+                            <?php if($errors->has('error')): ?>
+                                <div class="alert alert-danger">
+                                    <?php echo e($errors->first('error')); ?>
+
+                                </div>
+                            <?php endif; ?>
+
                             <!-- Botão -->
                             <div class="d-grid mb-3">
-                                <button class="btn btn-custom btn-custom:hover btn-lg" role="button">Login</button>
+                                <button class="btn btn-custom btn-custom:hover btn-lg" type="submit">Login</button>
                             </div>
 
                             <!-- Links -->
                             <div class="text-center">
                                 <a href="esqueciSenha" class="text-secondary small text-decoration-none txt-small">Esqueceu a senha?</a>
                             </div>
-                            
+                        
+
                             <div class="d-grid mb-3 text-center">
                                 <hr>
                                 <p class="txt-small">Não possui conta?</p>

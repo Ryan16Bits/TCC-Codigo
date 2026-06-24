@@ -24,13 +24,13 @@
                             <!-- Email -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Email</label>
-                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" />
+                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" value="{{isset($entrada) ? $entrada->email : ''}}" required/>
                             </div>
 
                             <!-- Senha -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Senha</label>
-                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" />
+                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" value="{{isset($entrada) ? $entrada->senha : ''}}" required/>
                             </div>
                             
                             <!-- Lembrar -->
@@ -38,6 +38,12 @@
                                 <input type="checkbox" class="form-check-input">
                                 <label class="form-check-label txt-small">Lembrar de mim</label>
                             </div>
+
+                            @if ($errors->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('error') }}
+                                </div>
+                            @endif
 
                             <!-- Botão -->
                             <div class="d-grid mb-3">
@@ -48,7 +54,8 @@
                             <div class="text-center">
                                 <a href="esqueciSenha" class="text-secondary small text-decoration-none txt-small">Esqueceu a senha?</a>
                             </div>
-                            
+                        
+
                             <div class="d-grid mb-3 text-center">
                                 <hr>
                                 <p class="txt-small">Não possui conta?</p>

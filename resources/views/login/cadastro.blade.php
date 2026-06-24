@@ -24,18 +24,18 @@
                             <!-- Email -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Email</label>
-                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" value="{{isset($cadastro) ? $cadastro->email : ''}}" require/>
+                                <input type="email" class="form-control form-control-lg txt-small" placeholder="Insira seu email..." name="email" value="{{isset($cadastro) ? $cadastro->email : ''}}" required/>
                             </div>
                             
                             <!-- Senha -->
                             <div class="mb-3">
                                 <label class="form-label txt-small">Senha</label>
-                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" value="{{isset($cadastro) ? $cadastro->senha : ''}}" require/>
+                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha..." name="senha" value="{{isset($cadastro) ? $cadastro->senha : ''}}" required/>
                             </div>
                             
                             <div class="mb-3">
                                 <label class="form-label txt-small">Repetir Senha</label>
-                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha novamente..." name="senha" value="{{isset($cadastro) ? $cadastro->senha : ''}}" require/>
+                                <input type="password" class="form-control form-control-lg txt-small" placeholder="Insira sua senha novamente..." name="senha" value="{{isset($cadastro) ? $cadastro->senha : ''}}" required/>
                             </div>
 
                             <!-- Botão -->
