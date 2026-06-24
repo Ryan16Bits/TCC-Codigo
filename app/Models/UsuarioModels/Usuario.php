@@ -15,5 +15,11 @@ class Usuario extends Authenticatable
         'telefone', 
         'senha',
         'dataNascimento'];
+
+
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
 }
  

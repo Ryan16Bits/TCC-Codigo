@@ -170,23 +170,32 @@ class WebsiteController extends Controller
 
     public function logar(Request $request)
     {
+
+
         $validator = Validator::make($request->all(), [
             'email'     => 'required|email',
             'senha'     => 'required'
         ]);
 
-        return redirect()->back()
-            ->withErrors($validator)
-            ->withInput();
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
 
-        if (Auth::attempt(['email' => $request->email, 'senha' => $request->senha])) {
+        }
+
+        $credenciais = [
+        'email' => $request->email,
+        'password' => $request->senha 
+        ];
+    
+        if (Auth::attempt($credenciais)) {
             $request->session()->regenerate();
-
             return redirect()->route('tipo');
         }
 
         return redirect()->back()
-            ->withErrors(['email' => 'Usuário ou senha inválidos'])
+            ->withErrors(['error' => 'Usuário ou senha inválidos'])
             ->withInput();
     }
 
@@ -223,7 +232,7 @@ class WebsiteController extends Controller
 
         Auth::login($u);
 
-        return redirect()->route('tipo');
+        return redirect()->route('login');
     }
 
     public function cadastrarIdoso(Request $request)
@@ -290,6 +299,6 @@ class WebsiteController extends Controller
 
         Mail::to($invite->email)->send(new ConviteEmail($convite));
 
-        return redirect()->back()->with('success', 'Covnite enviado!');
+        return redirect()->back()->with('success', 'Convite enviado!');
     }
 }
