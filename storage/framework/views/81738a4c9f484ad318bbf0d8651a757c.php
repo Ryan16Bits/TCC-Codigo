@@ -149,7 +149,7 @@
 
                     <div class="d-flex gap-2 mt-3 mt-md-0">
 
-                        <form class="list" method="post" action="{[ route('convite.enviar') }}">
+                        <form class="list" method="post" action="<?php echo e(route('convite.enviar')); ?>">
 
                         <input type="email"
                             class="form-control"
