@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('evento', function (Blueprint $table) {
-            $table->id('idEvento');
-            $table->dateTime('data', precision: 0);
-            $table->dateTime('dataVizualizacao', precision: 0);
-            $table->enum('status', ['queda', 'bateria 10%', 'descarregado', 'sem conexão']);
-            $table->unsignedBigInteger('idPulseira');
-            $table->foreign('idPulseira')->references('idPulseira')->on('pulseira')->onDelete('cascade');
+            if (!Schema::hasTable('evento')) {
+                $table->id('idEvento');
+                $table->dateTime('data', precision: 0);
+                $table->dateTime('dataVizualizacao', precision: 0);
+                $table->enum('status', ['queda', 'bateria 10%', 'descarregado', 'sem conexão']);
+                $table->unsignedBigInteger('idPulseira');
+                $table->foreign('idPulseira')->references('idPulseira')->on('pulseira')->onDelete('cascade');
+            }
         });
     }
 
