@@ -5,6 +5,8 @@ namespace App\Http\Controllers\ApiController;
 use App\Http\Controllers\UsuarioController\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\LeituraSensor;
+use App\Models\QuedaDetectada;
 
 class SensorController extends Controller
 {
@@ -36,7 +38,7 @@ class SensorController extends Controller
             'giroZ'         => $dados['giroZ'], 
             'magnitudeAcel' => $dados['magnitudeAcel'],
             'temperatura'   => $dados['temperatura'] ?? null,
-        ]);
+        ], 'idLeitura');
 
         return response()->json([
             'sucesso'   => true,
@@ -50,29 +52,26 @@ class SensorController extends Controller
     // Chamado pelo Python quando detecta uma queda
     // ============================================================
     public function registrarQueda(Request $request)
-    {
-        $dados = $request->validate([
-            'idDispositivo' => 'required|integer|exists:dispositivos,idDispositivo',
-            'idLeitura'     => 'required|integer|exists:leitura_sensores,idLeitura',
-            'magnitudeAcel' => 'required|numeric',
-            'observacao'    => 'nullable|string|max:255',
-        ]);
+{
+    $dados = $request->validate([
+        'idDispositivo' => 'required|integer|exists:dispositivos,idDispositivo',
+        'idLeitura'     => 'required|integer|exists:leitura_sensores,idLeitura',
+        'magnitudeAcel' => 'required|numeric',
+        'confianca'     => 'nullable|numeric|between:0,1', // ajuste o range se for outra escala
+        'status'        => 'nullable|string|max:255',
+        'observacao'    => 'nullable|string|max:255',
+        'detectadoEm'   => 'nullable|date',
+    ]);
 
-        $idQueda = DB::table('quedas_detectadas')->insertGetId([
-            'idDispositivo' => $dados['idDispositivo'],
-            'idLeitura'     => $dados['idLeitura'],
-            'magnitudeAcel' => $dados['magnitudeAcel'],
-            'status'        => 'pendente',
-            'observacao'    => $dados['observacao'] ?? null,
-            'detectadoEm'   => now(),
-        ]);
+    $dados['detectadoEm'] = $dados['detectadoEm'] ?? now();
 
-        return response()->json([
-            'sucesso'  => true,
-            'mensagem' => 'Queda registrada com sucesso.',
-            'idQueda'  => $idQueda,
-        ], 201);
-    }
+    $queda = QuedaDetectada::create($dados);
+
+    return response()->json([
+        'message' => 'Queda registrada com sucesso.',
+        'queda'   => $queda,
+    ], 201);
+}
 
     // ============================================================
     // GET /api/quedas

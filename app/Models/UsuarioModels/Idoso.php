@@ -8,7 +8,7 @@ class Idoso extends Authenticatable
 {
     protected $table = 'idoso';
     protected $primaryKey = 'idIdoso';
-    
+     
     protected $fillable = [
         'nome', 
         'peso',

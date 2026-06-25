@@ -136,14 +136,14 @@ class WebsiteController extends Controller
         return view('pulseira.pulseira');
     }
 
-        public function cuidador()
-    {
-        return view('cadastrar.cuidador');
-    }
-
         public function idoso()
     {
         return view('cadastrar.idoso');
+    }
+
+        public function cuidador()
+    {
+        return view('cadastrar.cuidador');
     }
 
         public function esqueciSenha()
@@ -170,10 +170,9 @@ class WebsiteController extends Controller
     {
         return view('email.convite');
     }
-
+    
     public function logar(Request $request)
     {
-
 
         $validator = Validator::make($request->all(), [
             'email'     => 'required|email',

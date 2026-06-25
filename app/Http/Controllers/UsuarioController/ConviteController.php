@@ -56,18 +56,18 @@ class ConviteController extends Controller
     {
         $convite = Convite::where('token', $token)->firstOrFail();
 
-        if (!$convite->isValid()) {
+        if (!$convite->eValido()) {
             abort(410, 'Este convite expirou ou já foi utilizado.');
         }
 
-        return view('convite');
+        return view('email.cadastro', compact('convite'));
     }
 
     public function aceitarConvite(Request $request, $token)
     {
         $convite = Convite::where('token', $token)->firstOrFail();
 
-        if (!$convite->isValid()) {
+        if (!$convite-> eValido()) {
             return response()->json([
                 'message' => 'Este convite expirou ou já foi utlizado.'
             ], 410);
@@ -94,7 +94,7 @@ class ConviteController extends Controller
 
         $c->save();
 
-        $convite->markAsAccepted();
+        $convite->marcadoComoAceito();
 
         Auth::login($c);
 
