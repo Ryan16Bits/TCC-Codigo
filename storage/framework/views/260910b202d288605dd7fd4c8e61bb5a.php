@@ -1,14 +1,18 @@
 
 <?php $__env->startSection("conteudo"); ?>
-<main>
+<main style="text-align: center";>
     <div class="container">
         <div class="header">
             <h1>🎉 Você foi convidado!</h1>
         </div>
         
+        <br>
+
         <div class="content">
             <h2>Olá!</h2>
             
+            <br>
+
             <p>Você recebeu um convite para criar uma conta em <strong>Safe Watch</strong>.</p>
             
             <div class="invite-info">
@@ -17,39 +21,39 @@
                     <p><strong>⏰ Expira em:</strong> <?php echo e($convite->expiraEm->format('d/m/Y H:i')); ?></p>
                 <?php endif; ?>
             </div>
-            
+
             <div class="btn-container">
-                <a href="<?php echo e(route('convite', $convite->token)); ?>" class="btn">
+                <a href="<?php echo e(route('cadastroCuidador', $convite->token)); ?>" class="btn">
                     Criar minha conta
                 </a>
             </div>
             
+            <br>
+
             <div class="details">
                 <div class="details-item">
-                    <div class="number">✓</div>
-                    <div>Gratuito</div>
+                    <div class="number">✓ Gratuito</div>
                 </div>
+                <br>
                 <div class="details-item">
-                    <div class="number">⚡</div>
-                    <div>Rápido</div>
+                    <div class="number">⚡ Rápido</div>
                 </div>
+                <br>
                 <div class="details-item">
-                    <div class="number">🔒</div>
-                    <div>Seguro</div>
+                    <div class="number">🔒 Seguro</div>
                 </div>
             </div>
             
+            <br>
+
             <div class="warning">
                 ⚠️ Este link de convite é pessoal e intransferível. 
                 Não compartilhe este email com outras pessoas.
             </div>
             
-            <p style="text-align: center; margin-top: 20px;">
-                <a href="<?php echo e(route('home')); ?>" class="btn-secondary">
-                    Conhecer a plataforma
-                </a>
-            </p>
         </div>
+
+        <br>
         
         <div class="footer">
             <p>
@@ -58,8 +62,7 @@
             </p>
             <p>
                 <small>
-                    Safe Watch - 
-                    <a href="<?php echo e(route('home')); ?>"></a>
+                    Safe Watch
                 </small>
             </p>
         </div>
