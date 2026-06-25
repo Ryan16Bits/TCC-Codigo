@@ -7,7 +7,7 @@
 
     <!-- Boostrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
 	
 	<script src="https://kit.fontawesome.com/5e6e4af9c8.js" crossorigin="anonymous"></script>
 	
@@ -21,7 +21,7 @@
   
     <!-- LOGO -->
 	<div class="position-absolute top-50 start-50 translate-middle p-3 d-flex">
-		<img src="assets/img/logo-nova.png" alt="Logo" width="180" height="70">
+		<img src="/assets/img/logo-nova.png" alt="Logo" width="180" height="70">
 	</div>
 
 </nav>

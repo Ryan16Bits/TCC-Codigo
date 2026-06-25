@@ -40,9 +40,12 @@ Route::get('/esqueciSenha2', [WebsiteController::class, 'esqueciSenha2'])->name(
 Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista'])->name('notificacoesLista');
 Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador'])->name('homeCuidador');
 
-Route::get('/convite/{token}', [ConviteController::class, 'convite'])->name('convite');
+Route::get('/convite/{token}', [ConviteController::class, 'mostrarFormularioAceitacao'])->name('cadastroCuidador');
+Route::post('/convite/{token}', [ConviteController::class, 'aceitarConvite'])->name('cuidador.post');
 Route::middleware(['auth'])->group(function () {
     Route::post('/cuidador', [WebsiteController::class, 'mandarConvite'])->name('convite.enviar');
 });
 
 Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
+// Exibe o alerta de uma queda específica
+Route::get('/notificacoe/alerta', [QuedaController::class, 'alerta'])->name('quedas.alerta');
