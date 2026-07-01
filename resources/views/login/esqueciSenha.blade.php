@@ -40,8 +40,7 @@
             </div>
 
             <!-- FORM -->
-            <form>
-
+            <form class="list" method="post" action="{{ route('senha.post') }}">
                 <!-- CÓDIGO -->
                 <div class="mb-4">
 
@@ -57,7 +56,78 @@
 
                         <input type="text"
                             class="form-control"
-                            placeholder="Digite o seu e-mail">
+                            placeholder="Digite o seu e-mail"
+                            name="email"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- NOVA SENHA -->
+                <div class="mb-4">
+                <label class="form-label txt-main fw-semibold">
+                    Nova Senha
+                </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text bg-white">
+                            <i class="fa-solid fa-key"></i>
+                        </span>
+
+                        <input type="password"
+                            class="form-control"
+                            placeholder="Digite sua nova senha"
+                            name="senha"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- CONFIRMAR -->
+                <div class="mb-4">
+
+                    <label class="form-label txt-main fw-semibold">
+                        Confirmar Nova Senha
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text bg-white">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+
+                        <input type="password"
+                            class="form-control"
+                            placeholder="Confirme sua nova senha"
+                            name="senha"
+                            requiered>
+
+                    </div>
+
+                </div>
+
+                <!-- ALERTA -->
+                <div class="alert d-flex align-items-start"
+                    style="
+                        background:#EEF4FF;
+                        border:1px solid #CFE0FF;
+                    ">
+
+                    <i class="fa-solid fa-circle-info me-3 mt-1"
+                        style="color:#2563EB;"></i>
+
+                    <div>
+
+                        <strong class="txt-main">
+                            Segurança da Conta
+                        </strong>
+
+                        <p class="txt-small mb-0">
+                            Utilize uma senha forte contendo letras, números e caracteres especiais.
+                        </p>
 
                     </div>
 
@@ -71,10 +141,10 @@
                         Voltar para login
                     </a>
 
-                    <button class="btn btn-custom px-5 py-2">
+                    <button class="btn btn-custom px-5 py-2" type="submit">
 
-                        <i class="fa-solid fa-arrow-right me-2"></i>
-                        Avançar
+                        <i class="fa-solid fa-rotate-right me-2"></i>
+                        Redefinir
 
                     </button>
 

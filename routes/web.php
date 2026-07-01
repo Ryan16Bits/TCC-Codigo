@@ -25,8 +25,8 @@ Route::get('/politica', [WebsiteController::class, 'politica'])->name('politica'
 Route::get('/sobreConta', [WebsiteController::class, 'sobreConta'])->name('sobreConta');
 Route::get('/termos', [WebsiteController::class, 'termos'])->name('termos');
 Route::get('/perfil', [WebsiteController::class, 'perfil'])->name('perfil');
-Route::get('/dados', [WebsiteController::class, 'dados'])->name('dados');
-Route::get('/editarDados', [WebsiteController::class, 'editarDados'])->name('editarDados');
+Route::get('/dados', [WebsiteController::class, 'editarDados'])->name('editarDados');
+Route::post('/dados', [WebsiteController::class, 'salvarMudancas'])->name('dados.post');
 Route::get('/gerenciar', [WebsiteController::class, 'gerenciar'])->name('gerenciar');
 Route::get('/trocar', [WebsiteController::class, 'trocar'])->name('trocar');
 Route::get('/senha', [WebsiteController::class, 'senha'])->name('senha');
@@ -36,7 +36,7 @@ Route::get('/cuidador', [WebsiteController::class, 'cuidador'])->name('cuidador'
 Route::get('/idoso', [WebsiteController::class, 'idoso'])->name('idoso');
 Route::post('/idoso', [WebsiteController::class, 'cadastrarIdoso'])->name('idoso.post');
 Route::get('/esqueciSenha', [WebsiteController::class, 'esqueciSenha'])->name('esqueciSenha');
-Route::get('/esqueciSenha2', [WebsiteController::class, 'esqueciSenha2'])->name('esqueciSenha2');
+Route::post('/esqueciSenha', [WebsiteController::class, 'redefinirSenha'])->name('senha.post');
 Route::get('/notificacoesLista', [WebsiteController::class, 'notificacoesLista'])->name('notificacoesLista');
 Route::get('/homeCuidador', [WebsiteController::class, 'homeCuidador'])->name('homeCuidador');
 

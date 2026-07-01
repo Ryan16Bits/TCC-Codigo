@@ -13,7 +13,7 @@
 
         <div class="card-body p-4">
 
-            <form>
+            <form class="list" method="post" action="{{ route('dados.post') }}">
 
                 <!-- FOTO -->
                 <div class="text-center mb-5">
@@ -67,7 +67,10 @@
 
                             <input type="text"
                                 class="form-control"
-                                placeholder="Digite seu nome">
+                                placeholder="Digite seu nome"
+                                name="nome"
+                                value="{{ isset($u) ? $u->nome : ''}}"
+                                required>
 
                         </div>
 
@@ -88,7 +91,10 @@
 
                             <input type="email"
                                 class="form-control"
-                                placeholder="Digite seu email">
+                                placeholder="Digite seu email"
+                                name="email"
+                                value="{{ isset($u) ? $u->email : ''}}"
+                                required>
 
                         </div>
 
@@ -109,7 +115,10 @@
 
                             <input type="tel"
                                 class="form-control"
-                                placeholder="Digite seu telefone">
+                                placeholder="Digite seu telefone"
+                                value="{{ isset($u) ? $u->telefone : ''}}"
+                                name="telefone"
+                                required>
 
                         </div>
 
@@ -124,7 +133,7 @@
 
                         <div class="input-group">
 
-                            <input type="date" class="form-control" step="0.01">
+                            <input type="date" class="form-control" step="0.01" name="dataNascimento" value="{{ isset($u) ? $u->dataNascimento : ''}}" required>
 
                         </div>
 
@@ -135,7 +144,7 @@
                 <!-- BOTÃO -->
                 <div class="d-flex justify-content-end mt-4">
 
-                    <button class="btn btn-custom px-5 py-2">
+                    <button class="btn btn-custom px-5 py-2" type="submit">
 
                         <i class="fa-solid fa-floppy-disk me-2"></i>
                         Salvar
