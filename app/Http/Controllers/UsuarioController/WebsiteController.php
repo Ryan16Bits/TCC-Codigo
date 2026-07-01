@@ -101,11 +101,6 @@ class WebsiteController extends Controller
         return view('perfil.perfil');
     }
 
-        public function dados()
-    {
-        return view('perfil.dados');
-    }
-
         public function editarDados()
     {
         return view('perfil.editarDados');
@@ -183,7 +178,6 @@ class WebsiteController extends Controller
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-
         }
 
         $credenciais = [
@@ -235,6 +229,48 @@ class WebsiteController extends Controller
         Auth::login($u);
 
         return redirect()->route('login');
+    }
+
+    public function salvarMudancas(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('home');
+        }
+
+        $u = Auth::user();
+
+        $validator = Validator::make($request->all(), [
+            'nome'      => 'nullable|string|max:255',
+            'email'     => 'required|email|unique:usuario,email',
+            'telefone'  => 'nullable|string|max:30',
+            'dataNascimento'  => 'nullable',
+        ]);
+
+        $u->nome = $request->input('nome');
+        $u->email = $request->input('email');
+        $u->telefone = $request->input('telefone');
+        $u->dataNascimento = $request->input('dataNascimento');
+
+        $u->save();
+
+        return redirect()->route('login');
+    }
+
+    public function redefinirSenha(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email'     => 'required|email|exists:usuario,email',
+            'senha'     => 'required|min:6',
+            'confirmarSenha' => 'nullable|string|same:senha'
+        ]);
+
+        $u = Usuario::where('email', $request->input('email'))->first();
+        $u->senha = Hash::make($request->input('senha'));
+
+        $u->save();
+
+        return redirect()->route('login')
+            ->with('success', 'Senha alterada com sucesso! Faça login com sua nova senha.');
     }
 
     public function cadastrarIdoso(Request $request)
@@ -292,6 +328,7 @@ class WebsiteController extends Controller
 
     public function mandarConvite(Request $request)
     {
+        
         $convite = Convite::create([
             'email' => 'hello@example.com',
             'token' => Convite::gerarToken(),
