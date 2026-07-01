@@ -146,11 +146,6 @@ class WebsiteController extends Controller
         return view('login.esqueciSenha');
     }
 
-        public function esqueciSenha2()
-    {
-        return view('login.esqueciSenha2');
-    }
-
         public function notificacoesLista()
     {
         return view('notificacoes');
