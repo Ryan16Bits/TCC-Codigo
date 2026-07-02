@@ -30,7 +30,8 @@ Route::post('/dados', [WebsiteController::class, 'salvarMudancas'])->name('dados
 Route::get('/gerenciar', [WebsiteController::class, 'gerenciar'])->name('gerenciar');
 Route::get('/trocar', [WebsiteController::class, 'trocar'])->name('trocar');
 Route::get('/senha', [WebsiteController::class, 'senha'])->name('senha');
-Route::get('/conectar', [WebsiteController::class, 'conectar'])->name('conectar');
+Route::get('/conectarPulseira', [WebsiteController::class, 'conectar'])->name('conectar');
+Route::post('/conectarPulseira', [WebsiteController::class, 'cadastrarPulseira'])->name('pulseira.post');
 Route::get('/pulseiras', [WebsiteController::class, 'pulseira'])->name('pulseira');
 Route::get('/cuidador', [WebsiteController::class, 'cuidador'])->name('cuidador');
 Route::get('/idoso', [WebsiteController::class, 'idoso'])->name('idoso');
