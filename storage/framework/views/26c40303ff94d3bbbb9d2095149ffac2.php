@@ -46,7 +46,7 @@
                 Nome
                 </label>
 
-                <input type="text" class="form-control" placeholder="Digite o nome da pulseira" name="nomePulseira" required>
+                <input type="text" class="form-control" placeholder="Digite o nome da pulseira" name="nome" required>
 
             </div>
 
