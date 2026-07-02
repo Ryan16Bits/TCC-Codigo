@@ -210,7 +210,7 @@ class WebsiteController extends Controller
 
         if ($request->filled('confirmarSenha') && $request->input('senha') !== $request->input('confirmarSenha')) {
             return redirect()->back()->with('error', 'As senhas não coincidem!')->withInput();
-            }
+        }
  
         $u = new Usuario();
         $u->nome = $request->input('nome');
@@ -300,18 +300,22 @@ class WebsiteController extends Controller
     public function cadastrarPulseira(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nome'      => 'required|string|max:255',
-            'codigo'    => 'required|string|unique',
+            'nomePulseira'      => 'required|string|max:255',
+            'codigo'    => 'required|string|unique:pulseira',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-                ->withErrors($validate)
+                ->withErrors($validator)
                 ->withInput();
         }
 
+        if($request->input('codigo') !== "1234567890") {
+            return redirect()->back()->with('error1', 'Código não encontrado.')->withInput();
+        }
+
         $p = new Pulseira();
-        $p->nome = $request->input('nome');
+        $p->nomePulseira = $request->input('nomePulseira');
         $p->codigo = $request->input('codigo');
 
         $p->save();
