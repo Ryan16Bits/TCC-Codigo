@@ -300,8 +300,8 @@ class WebsiteController extends Controller
     public function cadastrarPulseira(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nomePulseira'      => 'required|string|max:255',
-            'codigo'    => 'required|string|unique:pulseira',
+            'nome'      => 'required|string|max:255',
+            'codigo'    => 'required|string|unique:dispositivos',
         ]);
 
         if ($validator->fails()) {
@@ -314,15 +314,15 @@ class WebsiteController extends Controller
             return redirect()->back()->with('error1', 'Código não encontrado.')->withInput();
         }
 
-        $p = new Pulseira();
-        $p->nomePulseira = $request->input('nomePulseira');
-        $p->codigo = $request->input('codigo');
+        $d = new Pulseira();
+        $d->nome = $request->input('nome');
+        $d->codigo = $request->input('codigo');
 
-        $p->save();
+        $d->save();
 
-        Auth::login($p);
+        Auth::login($d);
 
-        return redirect()->route('home');
+        return redirect()->route('conectarPulseira');
     }
 
     public function mandarConvite(Request $request)

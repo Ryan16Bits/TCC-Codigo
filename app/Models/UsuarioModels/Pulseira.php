@@ -6,11 +6,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  
 class Pulseira extends Authenticatable
 {
-    protected $table = 'pulseira';
-    protected $primaryKey = 'idPulseira';
+    protected $table = 'dispositivos';
+    protected $primaryKey = 'idDispositivo';
 
     protected $fillable = [
-        'nomePulseira', 
+        'nome', 
         'codigo'];
 }
  
