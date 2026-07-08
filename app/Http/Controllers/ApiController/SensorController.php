@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\LeituraSensor;
 use App\Models\QuedaDetectada;
+use App\Models\LeituraBatimento;
 
 class SensorController extends Controller
 {
@@ -70,6 +71,30 @@ class SensorController extends Controller
     return response()->json([
         'message' => 'Queda registrada com sucesso.',
         'queda'   => $queda,
+    ], 201);
+}
+
+// ============================================================
+// POST /api/batimentos
+// Recebe os dados do MAX30102
+// ============================================================
+
+public function salvarBatimento(Request $request)
+{
+    $dados = $request->validate([
+        'idDispositivo' => 'required|integer|exists:dispositivos,idDispositivo',
+        'idLeitura'     => 'nullable|integer|exists:leitura_sensores,idLeitura',
+        'bpm'           => 'required|numeric',
+    ]);
+
+    $dados['detectadoEm'] = now();
+
+    $batimento = LeituraBatimento::create($dados);
+
+    return response()->json([
+        'sucesso'      => true,
+        'mensagem'     => 'Batimento salvo com sucesso.',
+        'idBatimento'  => $batimento->idBatimento,
     ], 201);
 }
 
