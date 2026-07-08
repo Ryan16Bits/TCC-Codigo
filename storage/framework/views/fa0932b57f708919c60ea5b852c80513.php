@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col">
         <a href="idoso" class="text-body text-decoration-none">
-          <div class="card shadow bor card-hover d-inline-block text-start p-3" style="height: auto; width: 200px">
+          <div class="d-inline-block text-start card shadow-lg border-0 rounded-4 p-3 card:hover" style="height: auto; width: 200px">
             <i class="fa-solid fa-person-cane fa-2x txt-main"></i>
             <span class="txt-main">Idoso</span>
           </div>
@@ -20,7 +20,7 @@
       </div>
       <div class="col">
         <a href="cuidador" class="text-body text-decoration-none">
-          <div class="card shadow bor card:hover d-inline-block text-start p-3" style="height: auto; width: 200px">
+          <div class="d-inline-block text-start card shadow-lg border-0 rounded-4 p-3 card:hover" style="height: auto; width: 200px">
             <i class="fa-solid fa-user-doctor fa-2x txt-main"></i>
             <span class="txt-main">Cuidador</span>
           </div>
@@ -75,7 +75,7 @@
     <div class="row">
       <div class="col">
         <a href="relatorios" class="text-body text-decoration-none">
-          <div class="card shadow bor card-hover d-inline-block text-start p-3" style="height: auto; width: 200px;">
+          <div class="d-inline-block text-start card shadow-lg border-0 rounded-4 p-3 card:hover" style="height: auto; width: 200px;">
             <i class="fa-regular fa-file-lines fa-2x txt-main"></i>
             <span class="mt-2 txt-main">Relatórios</span>
           </div>
