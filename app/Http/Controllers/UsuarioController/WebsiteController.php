@@ -5,7 +5,9 @@ namespace App\Http\Controllers\UsuarioController;
 use App\Models\UsuarioModels\Usuario;
 use App\Models\UsuarioModels\Idoso;
 use App\Models\UsuarioModels\Pulseira;
+use App\Models\UsuarioModels\Cuidador;
 use App\Models\UsuarioModels\Convite;
+use App\Models\QuedaDetectada;
 use App\Mail\ConviteEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +40,13 @@ class WebsiteController extends Controller
 
         public function relatorios()
     {
-        return view('relatorio.relatorios');
+        $totalPulseira = Pulseira::count();
+        $totalIdoso = Idoso::count();
+        $totalCuidador = Cuidador::count();
+        $totalQueda = QuedaDetectada::count();
+
+        return view('relatorio.relatorios', compact('totalPulseira', 'totalIdoso', 'totalCuidador', 'totalQueda'));
+
     }
 
         public function observacao()
