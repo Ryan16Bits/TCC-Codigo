@@ -21,3 +21,4 @@ Route::patch('/quedas/{id}',   [SensorController::class, 'atualizarStatus']);
 
 // --- Status da pulseira ---
 Route::get('/dispositivos/{id}/status', [SensorController::class, 'statusPulseira']);
+Route::post('/batimentos', [SensorController::class, 'salvarBatimento']);
