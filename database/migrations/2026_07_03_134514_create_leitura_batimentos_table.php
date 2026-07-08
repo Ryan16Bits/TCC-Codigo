@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('idBatimento');
             $table->unsignedBigInteger('idDispositivo');
             $table->unsignedBigInteger('idLeitura');
-            $table->doublePrecision('bpm');
+            $table->integer('bpm');
             $table->timestamp('detectadoEm');
             $table->timestamps();
             $table->foreign('idDispositivo')->references('idDispositivo')->on('dispositivos')->onDelete('cascade');
