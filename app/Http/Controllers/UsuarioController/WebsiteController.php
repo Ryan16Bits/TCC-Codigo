@@ -347,4 +347,25 @@ class WebsiteController extends Controller
 
         return redirect()->back()->with('success', 'Convite enviado!');
     }
+
+    public function quedasPorMes($ano, $mes)
+    {
+        $ano = (int) $ano;
+        $mes = (int) $mes;
+        
+        $quedas = Queda::whereYear('detectadoEm', $ano)
+                       ->whereMonth('detectadoEm', $mes)
+                       ->get();
+        
+        $quedasPorDia = [];
+        foreach ($quedas as $queda) {
+            $dia = Carbon::parse($queda->detectadoEm)->day;
+            if (!isset($quedasPorDia[$dia])) {
+                $quedasPorDia[$dia] = 0;
+            }
+            $quedasPorDia[$dia]++;
+        }
+        
+        return response()->json($quedasPorDia);
+    }
 }
