@@ -351,22 +351,35 @@ class WebsiteController extends Controller
 
     public function quedasPorMes($ano, $mes)
     {
+        try {
         $ano = (int) $ano;
         $mes = (int) $mes;
         
         $quedas = QuedaDetectada::whereYear('detectadoEm', $ano)
                        ->whereMonth('detectadoEm', $mes)
                        ->get();
-        
-        $quedasPorDia = [];
-        foreach ($quedas as $queda) {
-            $dia = Carbon::parse($queda->detectadoEm)->day;
-            if (!isset($quedasPorDia[$dia])) {
-                $quedasPorDia[$dia] = 0;
+
+            $quedasPorDia = [];
+            foreach ($quedas as $queda) {
+                $dia = Carbon::parse($queda->data_queda)->day;
+                if (!isset($quedasPorDia[$dia])) {
+                    $quedasPorDia[$dia] = 0;
+                }
+                $quedasPorDia[$dia]++;
             }
-            $quedasPorDia[$dia]++;
+
+            return response()->json([
+                'success' => true,
+                'data' => $quedasPorDia,
+                'total' => $quedas->count()
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Erro ao buscar dados: ' . $e->getMessage()
+            ], 500);
+
         }
-        
-        return response()->json($quedasPorDia);
-    }
+    }  
 }
