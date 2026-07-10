@@ -91,13 +91,48 @@
         let currentDate = new Date();
         let currentYear = currentDate.getFullYear();
         let currentMonth = currentDate.getMonth();
+        let dadosQuedas = {};
 
         const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
         const monthBadge = document.getElementById('monthBadge');
         const monthYearDisplay = document.getElementById('monthYearDisplay');
         const calendarGrid = document.getElementById('calendarGrid');
 
-        function renderCalendar(year, month) {
+        // Função para buscar dados do mês via API
+        async function buscarDadosQuedas(year, month) {
+            try {
+                // month + 1 porque o JavaScript usa 0-11 e o PHP usa 1-12
+                const url = `/api/quedas/${year}/${month + 1}`;
+                console.log('Buscando dados de:', url);
+                
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    dadosQuedas = result.data || {};
+                    console.log('Dados carregados:', dadosQuedas);
+                } else {
+                    console.error('Erro na API:', result.message);
+                    dadosQuedas = {};
+                }
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+                dadosQuedas = {};
+            }
+        }
+
+        async function renderCalendar(year, month) {
+            // Mostrar loading
+            calendarGrid.innerHTML = '<div class="loading">Carregando...</div>';
+            
+            // Buscar dados do mês
+            await buscarDadosQuedas(year, month);
+
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             const daysInPrevMonth = new Date(year, month, 0).getDate();
@@ -132,7 +167,22 @@
                 if (dayOfWeek === 0 || dayOfWeek === 6) {
                     classes += ' weekend';
                 }
-                gridHtml += `<div class="${classes}">${d}</div>`;
+                
+                // Verificar se tem queda neste dia
+                const numeroQuedas = dadosQuedas[d] || 0;
+                
+                if (numeroQuedas > 0) {
+                    classes += ' has-fall';
+                    const textoQuedas = numeroQuedas === 1 ? 'queda' : 'quedas';
+                    gridHtml += `<div class="${classes}" 
+                                      title="${numeroQuedas} ${textoQuedas} neste dia"
+                                      data-quedas="${numeroQuedas}">
+                                      ${d}
+                                      <span class="fall-badge">${numeroQuedas}</span>
+                                  </div>`;
+                } else {
+                    gridHtml += `<div class="${classes}">${d}</div>`;
+                }
             }
 
             const totalCells = startOffset + daysInMonth;
@@ -144,6 +194,7 @@
             calendarGrid.innerHTML = gridHtml;
         }
 
+        // Navegação do calendário
         document.getElementById('prevMonthBtn').addEventListener('click', function() {
             currentMonth--;
             if (currentMonth < 0) {
@@ -162,8 +213,10 @@
             renderCalendar(currentYear, currentMonth);
         });
 
+        // Inicializar calendário
         renderCalendar(currentYear, currentMonth);
 
+        // ==================== GRÁFICO ====================
         const ctx = document.getElementById('accelChart').getContext('2d');
         const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
         const dadosGrafico = [15, 22, 18, 35, 41, 29, 44, 38, 31, 26, 20, 17];
@@ -218,5 +271,5 @@
             }
         });
     })();
-</script>   
+</script>
 @endsection

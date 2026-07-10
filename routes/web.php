@@ -13,6 +13,7 @@ Route::post('/cadastro', [WebsiteController::class, 'cadastrar'])->name('cadastr
 Route::get('/tipo', [WebsiteController::class, 'tipo'])->name('tipo');
 Route::get('/home', [WebsiteController::class, 'home'])->name('home');
 Route::get('/relatorios', [WebsiteController::class, 'relatorios'])->name('relatorios');
+Route::get('/api/quedas/{ano}/{mes}', [WebsiteController::class, 'quedasPorMes'])->name('api.quedas.mes');
 Route::get('/observacao', [WebsiteController::class, 'observacao'])->name('observacao');
 Route::get('/acelerometro', [WebsiteController::class, 'acelerometro'])->name('acelerometro');
 Route::get('/configuracoes', [WebsiteController::class, 'configuracoes'])->name('configuracoes');
