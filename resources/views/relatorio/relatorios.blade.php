@@ -101,7 +101,6 @@
         // Função para buscar dados do mês via API
         async function buscarDadosQuedas(year, month) {
             try {
-                // month + 1 porque o JavaScript usa 0-11 e o PHP usa 1-12
                 const url = `/api/quedas/${year}/${month + 1}`;
                 console.log('Buscando dados de:', url);
                 
@@ -160,27 +159,36 @@
 
             for (let d = 1; d <= daysInMonth; d++) {
                 let classes = 'day';
+                
+                // Marcar dia atual
                 if (d === todayDate && month === todayMonth && year === todayYear) {
                     classes += ' today';
                 }
+                
+                // Marcar fim de semana
                 const dayOfWeek = new Date(year, month, d).getDay();
                 if (dayOfWeek === 0 || dayOfWeek === 6) {
                     classes += ' weekend';
                 }
                 
-                // Verificar se tem queda neste dia
+                // VERIFICAR SE TEM QUEDA NESTE DIA
                 const numeroQuedas = dadosQuedas[d] || 0;
                 
                 if (numeroQuedas > 0) {
-                    classes += ' has-fall';
+                    classes += ' has-fall'; // ADICIONA A CLASSE CSS
+                    
+                    // Cria o HTML do dia com o badge
                     const textoQuedas = numeroQuedas === 1 ? 'queda' : 'quedas';
-                    gridHtml += `<div class="${classes}" 
-                                      title="${numeroQuedas} ${textoQuedas} neste dia"
-                                      data-quedas="${numeroQuedas}">
-                                      ${d}
-                                      <span class="fall-badge">${numeroQuedas}</span>
-                                  </div>`;
+                    gridHtml += `
+                        <div class="${classes}" 
+                             title="${numeroQuedas} ${textoQuedas} neste dia"
+                             data-quedas="${numeroQuedas}">
+                            ${d}
+                            <span class="fall-badge">${numeroQuedas}</span>
+                        </div>
+                    `;
                 } else {
+                    // Dia sem quedas
                     gridHtml += `<div class="${classes}">${d}</div>`;
                 }
             }
