@@ -361,7 +361,7 @@ class WebsiteController extends Controller
 
             $quedasPorDia = [];
             foreach ($quedas as $queda) {
-                $dia = Carbon::parse($queda->data_queda)->day;
+                $dia = Carbon::parse($queda->detectadoEm)->day;
                 if (!isset($quedasPorDia[$dia])) {
                     $quedasPorDia[$dia] = 0;
                 }
