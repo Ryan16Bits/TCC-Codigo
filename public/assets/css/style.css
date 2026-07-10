@@ -194,17 +194,20 @@
             }
         }
 
+/* Estilos para dias com quedas */
 .day.has-fall {
-    background-color: #fff3cd;
-    border-color: #ffc107;
+    background-color: #fee2e2;
+    border-color: #ef4444;
     position: relative;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .day.has-fall:hover {
-    background-color: #ffe69b;
+    background-color: #fecaca;
     transform: scale(1.05);
     transition: all 0.2s;
+    z-index: 2;
 }
 
 /* Badge com número de quedas */
@@ -212,41 +215,44 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: #dc3545;
+    background-color: #ef4444;
     color: white;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 10px;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+    border: 2px solid white;
 }
 
-/* Tooltip personalizado */
-.day.has-fall::after {
-    content: attr(title);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 10;
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 30px 20px;
+    color: #6b7280;
+    font-size: 14px;
 }
 
-.day.has-fall:hover::after {
-    visibility: visible;
-    opacity: 1;
+.loading::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0% { content: ''; }
+    25% { content: '.'; }
+    50% { content: '..'; }
+    75% { content: '...'; }
+}
+
+/* Ajuste nos dias do calendário */
+.day {
+    position: relative;
+    transition: all 0.2s;
 }
 
 /* parte do rafael, sai fora daqui, não mexe  >:(  */
