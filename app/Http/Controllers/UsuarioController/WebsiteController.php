@@ -353,7 +353,7 @@ class WebsiteController extends Controller
         $ano = (int) $ano;
         $mes = (int) $mes;
         
-        $quedas = Queda::whereYear('detectadoEm', $ano)
+        $quedas = QuedaDetectada::whereYear('detectadoEm', $ano)
                        ->whereMonth('detectadoEm', $mes)
                        ->get();
         
