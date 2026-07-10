@@ -49,4 +49,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
 // Exibe o alerta de uma queda específica
-Route::get('/notificacoe/alerta', [QuedaController::class, 'alerta'])->name('quedas.alerta');
+//Route::get('/notificacoe/alerta', [QuedaController::class, 'alerta'])->name('quedas.alerta');
+Route::view ('/alerta', "notificacoes.alerta");
+
