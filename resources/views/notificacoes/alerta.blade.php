@@ -137,7 +137,7 @@
                             <circle cx="12" cy="9" r="2.4" stroke="var(--detalhes)" stroke-width="2"/>
                         </svg>
                         <div>
-                            <div class="txt-small">Última localização</div>
+                            <div class="txt-small">Local</div>
                             <div class="txt-main fw-semibold">Rua das Acácias, 123 — Bairro Centro</div>
                         </div>
                     </div>
@@ -149,17 +149,7 @@
             <div class="col-lg-4">
 
                 <!-- Contagem regressiva -->
-                <div class="alerta-countdown p-3 mb-3" id="alerta-countdown">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="txt-small">Ligando para emergência em</span>
-                        <span class="fw-semibold" style="color:var(--botoes-emergencia);font-family:'Poppins',sans-serif;" id="num-segundos">15s</span>
-                    </div>
-                    <div class="progress mb-3" style="height:6px;">
-                        <div class="progress-bar" id="barra-progresso" role="progressbar"
-                             style="width:100%; background-color:var(--botoes-emergencia);"></div>
-                    </div>
-                    <button class="btn btn-outline-secondary btn-sm w-100" id="btn-cancelar-countdown">Cancelar</button>
-                </div>
+                
 
                 <!-- Ações -->
                 <button class="btn btn-emergencia w-100 mb-2 py-2">Ligar para emergência agora</button>
