@@ -36,7 +36,9 @@ class WebsiteController extends Controller
 
         public function home()
     {
-        return view('home');
+        $batida = LeituraBatimento;
+
+        return view('home', compact('batida'));
     }
 
         public function relatorios()
@@ -112,7 +114,9 @@ class WebsiteController extends Controller
 
         public function editarDados()
     {
-        return view('perfil.editarDados');
+        $u = Auth::user();
+
+        return view('perfil.editarDados', compact('u'));
     }
 
         public function gerenciar()
@@ -137,7 +141,12 @@ class WebsiteController extends Controller
 
         public function pulseira()
     {
-        return view('pulseira.pulseira');
+        $u = Auth::user();
+        $p = Pulseira;
+        $c = Cuidador::count();
+        $c1 = Cuidador;
+
+        return view('pulseira.pulseira', compact('u','p','c','c1'));
     }
 
         public function idoso()
