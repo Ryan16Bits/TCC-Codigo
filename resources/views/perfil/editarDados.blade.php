@@ -133,7 +133,7 @@
 
                         <div class="input-group">
 
-                            <input type="date" class="form-control" step="0.01" name="dataNascimento" value="{{ isset($u) ? $u->dataNascimento : ''}}" required>
+                            <input type="date" class="form-control" step="0.01" name="dataNascimento" value="{{ isset($u) && $u->dataNascimento ? \Carbon\Carbon::parse($u->dataNascimento)->format('Y-m-d') : '' }}" required>
 
                         </div>
 

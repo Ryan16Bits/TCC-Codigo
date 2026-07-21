@@ -47,7 +47,7 @@
               <span class="badge bg-success rounded-pill px-1 py-2">Conectada</span>
               <div class="d-flex align-items-center gap-1 bg-danger bg-opacity-10 rounded-pill px-1 py-2">
                 <i class="fa-solid fa-heart-pulse text-danger fa-lg"></i>
-                <span class="fw-bold txt-main">78 BPM</span>
+                <span class="fw-bold txt-main">{{ $batida->bpm }} BPM</span>
               </div>
             </div>
           </div>

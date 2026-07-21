@@ -28,29 +28,27 @@
                 <div class="rounded-circle bg-secondary" style="width:50px; height:50px;"></div>
 
                 <div>
-                    <strong>Pulseira da Vovó</strong><br>
-                    <span class="txt-small">ID: #PUL-00421</span>
+                    <strong>Pulseira 1</strong><br>
+                    <span class="txt-small">{{ $p->codigo }}</span>
                 </div>
             </div>
-
-            <button class="btn btn-outline-secondary btn-sm">Editar</button>
 
         </div>
     </div>
 
     <!-- CUIDADORES -->
     <div class="mt-4">
-        <p class="txt-small">CUIDADORES (3)</p>
+        <p class="txt-small">CUIDADORES {{ $c }}</p>
 
         <!-- ADM -->
         <div class="card p-3 mb-2 shadow-sm d-flex flex-row align-items-center gap-3">
 
             <div class="rounded-circle bg-secondary text-center" style="width:45px; height:45px; line-height:45px;">
-                RM
+                ADM
             </div>
 
             <div>
-                <strong>Ryan Marques</strong><br>
+                <strong>{{ $u->nome }}</strong><br>
                 <span class="txt-small">Administrador • Você</span>
             </div>
 
@@ -61,34 +59,14 @@
 
             <div class="d-flex align-items-center gap-3">
                 <div class="rounded-circle bg-light text-center" style="width:45px; height:45px; line-height:45px;">
-                    AS
+                    C
                 </div>
 
                 <div>
-                    <strong>Ana Silva</strong><br>
+                    <strong>{{ $c1->nome }}</strong><br>
                     <span class="txt-small">Cuidador</span>
                 </div>
             </div>
-
-            <button class="btn btn-outline-secondary btn-sm">Admin</button>
-
-        </div>
-
-        <!-- CUIDADOR 2 -->
-        <div class="card p-3 mb-2 shadow-sm d-flex justify-content-between align-items-center flex-row">
-
-            <div class="d-flex align-items-center gap-3">
-                <div class="rounded-circle bg-light text-center" style="width:45px; height:45px; line-height:45px;">
-                    JP
-                </div>
-
-                <div>
-                    <strong>João Pedro</strong><br>
-                    <span class="txt-small">Cuidador</span>
-                </div>
-            </div>
-
-            <button class="btn btn-outline-secondary btn-sm">Admin</button>
 
         </div>
 
