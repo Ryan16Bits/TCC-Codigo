@@ -29,7 +29,7 @@
 
                 <div>
                     <strong>Pulseira 1</strong><br>
-                    <span class="txt-small">{{ $p->codigo }}</span>
+                    <span class="txt-small">{{ $p }}</span>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
                 </div>
 
                 <div>
-                    <strong>{{ $c1->nome }}</strong><br>
+                    <strong>{{ $c1 }}</strong><br>
                     <span class="txt-small">Cuidador</span>
                 </div>
             </div>
