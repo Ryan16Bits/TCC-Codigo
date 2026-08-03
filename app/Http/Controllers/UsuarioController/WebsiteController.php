@@ -7,6 +7,7 @@ use App\Models\UsuarioModels\Idoso;
 use App\Models\UsuarioModels\Pulseira;
 use App\Models\UsuarioModels\Cuidador;
 use App\Models\UsuarioModels\Convite;
+use App\Models\LeituraBatimento;
 use App\Models\QuedaDetectada;
 use App\Mail\ConviteEmail;
 use Illuminate\Http\Request;
@@ -36,9 +37,9 @@ class WebsiteController extends Controller
 
         public function home()
     {
-        $batida = LeituraBatimento;
+        $batimento = LeituraPulseira::pluck('bpm');
 
-        return view('home', compact('batida'));
+        return view('home', compact('batimento'));
     }
 
         public function relatorios()
@@ -142,9 +143,9 @@ class WebsiteController extends Controller
         public function pulseira()
     {
         $u = Auth::user();
-        $p = Pulseira;
+        $p = Pulseira::pluck('codigo');
         $c = Cuidador::count();
-        $c1 = Cuidador;
+        $c1 = Cuidador::pluck('nome');
 
         return view('pulseira.pulseira', compact('u','p','c','c1'));
     }
