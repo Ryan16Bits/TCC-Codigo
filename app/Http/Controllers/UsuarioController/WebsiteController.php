@@ -37,9 +37,8 @@ class WebsiteController extends Controller
 
         public function home()
     {
-        $batimento = LeituraPulseira::pluck('bpm');
 
-        return view('home', compact('batimento'));
+        return view('home');
     }
 
         public function relatorios()
