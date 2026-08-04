@@ -47,7 +47,7 @@
               <span class="badge bg-success rounded-pill px-1 py-2">Conectada</span>
               <div class="d-flex align-items-center gap-1 bg-danger bg-opacity-10 rounded-pill px-1 py-2">
                 <i class="fa-solid fa-heart-pulse text-danger fa-lg"></i>
-                <span class="fw-bold txt-main">{{ $batimento }} BPM</span>
+                <span class="fw-bold txt-main">78 BPM</span>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
     <br>
     
     <div class="row">
-        <a href="conectar" class="text-decoration-none">
+        <a href="conectarPulseira" class="text-decoration-none">
           <div class="d-inline-flex align-items-center justify-content-center rounded-circle shadow-sm card:hover" 
                style="width: 36px; height: 36px; background-color: var(--cor-navbar); transition: all 0.2s ease;">
             <i class="fa-solid fa-plus fa-1x text-white"></i>
