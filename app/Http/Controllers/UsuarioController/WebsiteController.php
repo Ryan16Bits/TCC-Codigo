@@ -151,7 +151,9 @@ class WebsiteController extends Controller
 
         public function idoso()
     {
-        return view('cadastrar.idoso');
+        $idoso = Idoso::all()->first();
+
+        return view('cadastrar.idoso', compact('idoso'));
     }
 
         public function cuidador()
