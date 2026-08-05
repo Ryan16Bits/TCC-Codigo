@@ -185,6 +185,9 @@
                     this.removerPopup(this.popupContainer.firstChild);
                 }
 
+                // 🔔 Toca um som de alerta (opcional)
+                this.tocarAlerta();
+
                 // 🔔 Notificação do navegador
                 this.enviarNotificacaoNavegador(queda);
             }
@@ -196,6 +199,29 @@
                 setTimeout(() => {
                     if (popup.parentNode) popup.remove();
                 }, 300);
+            }
+
+            // 🔔 Som de alerta
+            tocarAlerta() {
+                try {
+                    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = ctx.createOscillator();
+                    const gainNode = ctx.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(ctx.destination);
+                    
+                    oscillator.frequency.value = 800;
+                    oscillator.type = 'square';
+                    
+                    gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                    
+                    oscillator.start(ctx.currentTime);
+                    oscillator.stop(ctx.currentTime + 0.3);
+                } catch (e) {
+                    console.log('🔔 Alerta sonoro (fallback)');
+                }
             }
 
             // 🔔 Notificação do navegador (fora da página)
