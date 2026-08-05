@@ -205,5 +205,20 @@
 
     </div>
 
+    <br>
+
+    <div class="card p-3 shadow-sm d-flex flex-row justify-content-between align-items-center">
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="rounded-circle bg-secondary" style="width:50px; height:50px;"></div>
+
+            <div>
+                <strong>{{ $idoso->nome }}</strong><br>
+                <span class="txt-small">{{ $idoso->peso }} • {{ $idoso->altura }} • {{ $idoso->dataNascimento }}</span>
+            </div>
+        </div>
+
+    </div>
+
 </main>
 @endsection
