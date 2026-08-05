@@ -37,8 +37,10 @@ class WebsiteController extends Controller
 
         public function home()
     {
+        $usuario = Auth::user();
+        $pulseira = Pulseira::pluck('nome');
 
-        return view('home');
+        return view('home', compact('usuario', 'pulseira'));
     }
 
         public function relatorios()
@@ -392,5 +394,56 @@ class WebsiteController extends Controller
             ], 500);
 
         }
-    }  
+    } 
+
+    public function ultimoId()
+    {
+        try {
+            $ultimo = QuedaDetectada::orderBy('idQueda', 'desc')->first();
+            
+            return response()->json([
+                'ultimo_id' => $ultimo ? $ultimo->idQueda : 0
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'erro' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function verificarNovasQuedas(Request $request)
+    {
+        try {
+            $ultimoId = $request->input('ultimo_id', 0);
+            
+            $novasQuedas = QuedaDetectada::where('idQueda', '>', $ultimoId)
+                ->orderBy('idQueda', 'asc')
+                ->select('idQueda', 'detectadoEm')
+                ->get();
+
+            if ($novasQuedas->isNotEmpty()) {
+                $dados = $novasQuedas->map(function($queda) {
+                    return [
+                        'idQueda' => $queda->idQueda,
+                        'detectadoEm' => date('d/m/Y H:i:s', strtotime($queda->detectadoEm))
+                    ];
+                });
+
+                return response()->json([
+                    'novas' => $dados,
+                    'ultimo_id' => $novasQuedas->last()->idQueda
+                ]);
+            }
+
+            return response()->json(['novas' => []]);
+            
+        } catch (\Exception $e) {
+            // Retorna o erro em JSON
+            return response()->json([
+                'erro' => $e->getMessage(),
+                'linha' => $e->getLine(),
+                'arquivo' => $e->getFile()
+            ], 500);
+        }
+    }
 }
