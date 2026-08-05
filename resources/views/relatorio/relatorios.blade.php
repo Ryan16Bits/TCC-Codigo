@@ -75,7 +75,7 @@
         <div class="col-12 col-md-6">
             <div class="block-wrapper d-flex flex-column">
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <span class="block-title">Gráfico de Aceleração Média</span>
+                    <span class="block-title">Gráfico de Movimento Brusco</span>
                     <span class="badge bg-light text-secondary fw-normal">m/s²</span>
                 </div>
                 <div class="chart-container flex-grow-1">
@@ -226,8 +226,8 @@
 
         // ==================== GRÁFICO ====================
         const ctx = document.getElementById('accelChart').getContext('2d');
-        const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-        const dadosGrafico = [15, 22, 18, 35, 41, 29, 44, 38, 31, 26, 20, 17];
+        const meses = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+        const dadosGrafico = [15, 22, 18, 35, 41, 29, 44];
 
         new Chart(ctx, {
             type: 'line',

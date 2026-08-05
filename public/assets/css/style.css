@@ -255,6 +255,115 @@
     transition: all 0.2s;
 }
 
+.popup-container {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 380px;
+            width: 100%;
+        }
+
+        .popup-notificacao {
+            background: linear-gradient(135deg, #ff6b6b 0%, #c0392b 100%);
+            color: white;
+            padding: 18px 20px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 5px solid #ffd93d;
+        }
+
+        .popup-notificacao:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+
+        .popup-notificacao .titulo {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .popup-notificacao .titulo .icone {
+            font-size: 22px;
+        }
+
+        .popup-notificacao .conteudo {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .popup-notificacao .tempo {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-top: 6px;
+            display: block;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-notificacao.saindo {
+            animation: slideOutRight 0.3s ease forwards;
+        }
+
+        @keyframes slideOutRight {
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Indicador de monitoramento */
+        .monitor-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            z-index: 9998;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .monitor-status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2ecc71;
+            animation: pulse-dot 2s infinite;
+        }
+
+        .monitor-status .dot.offline {
+            background: #e74c3c;
+            animation: none;
+        }
+
+        @keyframes pulse-dot {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
 /* parte do rafael, sai fora daqui, não mexe  >:(  */
 
 .ajuda-nav-wrap {

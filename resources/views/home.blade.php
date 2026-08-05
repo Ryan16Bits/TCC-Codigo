@@ -4,7 +4,7 @@
   <div class="container text-center">
     <br>
     <br>
-    <h2 class="txt-main">Bem Vindo, Gordon Freeman!</h2>
+    <h2 class="txt-main">Bem Vindo, {{ $usuario->nome }}!</h2>
     <br>
     <div class="text-start">
         <h4 class="txt-main">Gerenciamento:</h4>
@@ -40,7 +40,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-3">
               <i class="fa-solid fa-bookmark fa-2x txt-main"></i>
-              <h5 class="mb-0 txt-main">Pulseira 1</h5>
+              <h5 class="mb-0 txt-main">{{ $pulseira }}</h5>
             </div>
             <div class="d-flex align-items-center gap-3">
               <br>

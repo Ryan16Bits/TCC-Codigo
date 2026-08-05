@@ -56,7 +56,202 @@
 	</div>
 </nav>
 
-@yield("conteudo")
+<!-- Container dos Pop-ups -->
+    <div id="popupContainer" class="popup-container"></div>
+
+    <!-- Indicador de Status -->
+    <div class="monitor-status" id="monitorStatus">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusTexto">Monitorando quedas...</span>
+    </div>
+
+    <script>
+        class MonitorQuedas {
+            constructor() {
+                this.ultimoId = 0;
+                this.popupContainer = document.getElementById('popupContainer');
+                this.isPolling = false;
+                
+                // Elementos de status
+                this.statusDot = document.getElementById('statusDot');
+                this.statusTexto = document.getElementById('statusTexto');
+                
+                // Data atual
+                this.hoje = new Date().toDateString();
+                this.totalQuedasHoje = 0;
+            }
+
+            // 🚀 Inicializa o monitor
+            async iniciar() {
+                await this.obterUltimoId();
+                this.verificarNovidades();
+                this.verificarVisibilidade();
+                
+                // Atualiza status a cada 30s
+                setInterval(() => this.atualizarStatus(true), 30000);
+            }
+
+            // 📌 Busca o último ID
+            async obterUltimoId() {
+                try {
+                    const resposta = await fetch('/api/quedas/ultimo-id');
+                    const dados = await resposta.json();
+                    
+                    if (dados.ultimo_id !== undefined) {
+                        this.ultimoId = dados.ultimo_id;
+                        console.log('✅ Monitor iniciado - Último ID:', this.ultimoId);
+                    }
+                } catch (erro) {
+                    console.error('❌ Erro ao buscar ID:', erro);
+                    this.atualizarStatus(false);
+                }
+            }
+
+            // 🔍 Loop de verificação (Long Polling)
+            async verificarNovidades() {
+                if (this.isPolling) return;
+                this.isPolling = true;
+
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 35000);
+
+                    const resposta = await fetch(
+                        `/api/quedas/verificar?ultimo_id=${this.ultimoId}`,
+                        { signal: controller.signal }
+                    );
+                    clearTimeout(timeoutId);
+
+                    const dados = await resposta.json();
+                    this.atualizarStatus(true);
+
+                    if (dados.novas && dados.novas.length > 0) {
+                        // Processa cada nova queda
+                        dados.novas.forEach(queda => {
+                            this.exibirPopup(queda);
+                        });
+
+                        // Atualiza o último ID
+                        this.ultimoId = dados.ultimo_id || this.ultimoId;
+                        console.log(`📨 ${dados.novas.length} nova(s) queda(s) detectada(s)!`);
+                    }
+
+                } catch (erro) {
+                    if (erro.name === 'AbortError') {
+                        console.log('⏱️ Timeout - continuando...');
+                    } else {
+                        console.error('❌ Erro no monitor:', erro);
+                        this.atualizarStatus(false);
+                    }
+                } finally {
+                    this.isPolling = false;
+                    // Continua o loop após 1 segundo
+                    setTimeout(() => this.verificarNovidades(), 1000);
+                }
+            }
+
+            // 🎯 Exibe o pop-up (SIMPLIFICADO)
+            exibirPopup(queda) {
+                const popup = document.createElement('div');
+                popup.className = 'popup-notificacao';
+                
+                // Formata a data
+                const dataHora = queda.detectadoEm || new Date().toLocaleString();
+                
+                popup.innerHTML = `
+                    <div class="titulo">
+                        <span class="icone">🚨</span>
+                        NOVA QUEDA DETECTADA!
+                    </div>
+                    <span class="tempo">⏰ ${dataHora}</span>
+                `;
+
+                // Adiciona ao container
+                this.popupContainer.appendChild(popup);
+
+                // Remove após 10 segundos com animação
+                const timeout = setTimeout(() => {
+                    this.removerPopup(popup);
+                }, 10000);
+
+                // Clique para fechar
+                popup.addEventListener('click', () => {
+                    clearTimeout(timeout);
+                    this.removerPopup(popup);
+                });
+
+                // Limita a 5 pop-ups na tela
+                while (this.popupContainer.children.length > 5) {
+                    this.removerPopup(this.popupContainer.firstChild);
+                }
+
+                // 🔔 Notificação do navegador
+                this.enviarNotificacaoNavegador(queda);
+            }
+
+            // 🗑️ Remove pop-up com animação
+            removerPopup(popup) {
+                if (!popup || !popup.parentNode) return;
+                popup.classList.add('saindo');
+                setTimeout(() => {
+                    if (popup.parentNode) popup.remove();
+                }, 300);
+            }
+
+            // 🔔 Notificação do navegador (fora da página)
+            enviarNotificacaoNavegador(queda) {
+                // Verifica se o navegador suporta notificações
+                if (!("Notification" in window)) return;
+
+                // Pede permissão se ainda não tiver
+                if (Notification.permission === "default") {
+                    Notification.requestPermission();
+                }
+
+                // Envia a notificação
+                if (Notification.permission === "granted") {
+                    new Notification("🚨 Nova Queda Detectada!", {
+                        body: `Queda #${queda.idQueda} registrada em ${queda.detectadoEm || 'agora'}`,
+                        icon: "/assets/img/alerta-icon.png" // Opcional
+                    });
+                }
+            }
+
+            // 📡 Atualiza o status visual
+            atualizarStatus(conectado) {
+                if (conectado) {
+                    this.statusDot.className = 'dot';
+                    this.statusDot.style.background = '#2ecc71';
+                    this.statusTexto.textContent = 'Monitorando quedas...';
+                } else {
+                    this.statusDot.className = 'dot offline';
+                    this.statusDot.style.background = '#e74c3c';
+                    this.statusTexto.textContent = '⚠️ Falha na conexão';
+                }
+            }
+
+            // 👀 Verifica visibilidade da página
+            verificarVisibilidade() {
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden) {
+                        console.log('👀 Página visível - verificando novidades...');
+                        this.verificarNovidades();
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const monitor = new MonitorQuedas();
+            monitor.iniciar();
+
+            // Expõe para debug no console
+            window.monitorQuedas = monitor;
+        });
+
+</script>
+
+    @yield("conteudo")
 
 </body>
 </html>
