@@ -52,4 +52,5 @@ Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio
 // Exibe o alerta de uma queda específica
 //Route::get('/notificacoe/alerta', [QuedaController::class, 'alerta'])->name('quedas.alerta');
 Route::view ('/alerta', "notificacoes.alerta");
-
+Route::get('/api/quedas/ultimo-id', [WebsiteController::class, 'ultimoId'])->name('ultimoId');
+Route::get('/api/quedas/verificar', [WebsiteController::class, 'verificarNovasQuedas'])->name('verificarNovasQuedas');
