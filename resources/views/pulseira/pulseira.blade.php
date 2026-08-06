@@ -28,7 +28,7 @@
                 <div class="rounded-circle bg-secondary" style="width:50px; height:50px;"></div>
 
                 <div>
-                    <strong>Pulseira 1</strong><br>
+                    <strong>{{ $pn }}</strong><br>
                     <span class="txt-small">{{ $p }}</span>
                 </div>
             </div>
