@@ -174,12 +174,6 @@
                     this.removerPopup(popup);
                 }, 10000);
 
-                // Clique para fechar
-                popup.addEventListener('click', () => {
-                    clearTimeout(timeout);
-                    this.removerPopup(popup);
-                });
-
                 // Limita a 5 pop-ups na tela
                 while (this.popupContainer.children.length > 5) {
                     this.removerPopup(this.popupContainer.firstChild);
@@ -241,6 +235,12 @@
                         icon: "/assets/img/alerta-icon.png" // Opcional
                     });
                 }
+
+                // Quando clicar na notificação
+                Notification.onclick = function() {
+                    window.focus(); // Traz a janela para frente
+                    window.open("/notificacoes/alerta" + queda.idQueda, "_blank"); // Redireciona
+                };
             }
 
             // 📡 Atualiza o status visual

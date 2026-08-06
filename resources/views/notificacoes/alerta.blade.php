@@ -1,64 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeGuard — Alerta de Queda</title>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-    <!-- No projeto real: <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <style>
-        /* Apenas as variáveis — já estarão no styles.css no projeto real */
-        :root {
-            --cor-navbar: #062B5B;
-            --botoes-secundarios: #0A5D9B;
-            --botoes-secundarios-hover: #063b64;
-            --detalhes: #00B7E8;
-            --botoes-emergencia: #C53030;
-            --fundo-principal: #ffffff;
-            --card-formularios: #F7F9FC;
-            --bordas-inputs: #DCE3EA;
-            --textos-principais: #1F2937;
-            --textos-menores: #6B7280;
-        }
-
-        /* Cole aqui o bloco "TELA DE ALERTA DE QUEDA" do styles.css */
-        .alerta-card { border: none; border-left: 6px solid var(--botoes-emergencia); border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,.06); transition: border-color 0.3s ease; }
-        .alerta-card.alerta-resolvido { border-left-color: #1FC77B; }
-        .alerta-icone { width: 56px; height: 56px; border-radius: 50%; background-color: var(--botoes-emergencia); display: flex; align-items: center; justify-content: center; flex-shrink: 0; animation: alerta-pulsar 1.4s ease-in-out infinite; }
-        .alerta-icone.alerta-resolvido { background-color: #1FC77B; animation: none; }
-        @keyframes alerta-pulsar { 0%,100%{ box-shadow:0 0 0 0 rgba(197,48,48,.35); } 50%{ box-shadow:0 0 0 10px rgba(197,48,48,0); } }
-        .alerta-badge { background-color: rgba(197,48,48,.10); color: var(--botoes-emergencia); font-family:'Inter',sans-serif; font-weight:600; font-size:.8rem; padding:.4rem .75rem; border-radius:50px; display:inline-flex; align-items:center; gap:6px; }
-        .alerta-badge.alerta-resolvido { background-color: rgba(31,199,123,.12); color: #1FC77B; }
-        .alerta-badge-ponto { width:7px; height:7px; border-radius:50%; background-color: var(--botoes-emergencia); animation: alerta-piscar 1s infinite; }
-        .alerta-badge.alerta-resolvido .alerta-badge-ponto { background-color:#1FC77B; animation:none; }
-        @keyframes alerta-piscar { 0%,100%{opacity:1;} 50%{opacity:.25;} }
-        .alerta-vital { border:none; border-radius:12px; background-color: var(--fundo-principal); box-shadow:0 2px 10px rgba(0,0,0,.05); text-align:center; padding:1rem .5rem; }
-        .alerta-vital-valor { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.25rem; color: var(--cor-navbar); }
-        .alerta-vital-rotulo { font-family:'Inter',sans-serif; font-size:.78rem; color: var(--textos-menores); margin-top:2px; }
-        .alerta-countdown { border:1px dashed var(--botoes-emergencia); border-radius:14px; background-color:#FFF4F3; }
-        .alerta-countdown.alerta-escondido { display:none; }
-        .btn-emergencia { background-color: var(--botoes-emergencia); border-color: var(--botoes-emergencia); color:white; font-family:'Poppins',sans-serif; font-weight:500; }
-        .btn-emergencia:hover { background-color:#a02626; border-color:#a02626; color:white; }
-        .bg-custom-nav { background-color: var(--cor-navbar); }
-        .btn-custom { background-color: var(--botoes-secundarios); border-color: var(--botoes-secundarios); color:white; font-family:'Poppins',sans-serif; font-weight:500; }
-        .btn-custom:hover { background-color: var(--botoes-secundarios-hover); border-color: var(--botoes-secundarios-hover); color:white; }
-        .txt-main { color: var(--textos-principais); font-family:'Inter',sans-serif; font-weight:400; }
-        .txt-small { color: var(--textos-menores); font-family:'Inter',sans-serif; font-weight:300; }
-        body { background-color: var(--card-formularios); font-family:'Inter',sans-serif; }
-    </style>
-</head>
-<body>
-
-    <!-- NAVBAR — mesmo padrão do restante do projeto -->
-    <nav class="navbar navbar-expand-lg bg-custom-nav py-3">
-        <div class="container">
-            <a class="navbar-brand text-white fw-semibold" style="font-family:'Poppins',sans-serif;" href="#">SafeGuard</a>
-        </div>
-    </nav>
+@extends("index")
+@section("conteudo")
 
     <div class="container py-4" style="max-width:960px;">
 
@@ -77,7 +18,7 @@
                 <div>
                     <h2 class="mb-1 txt-main fw-semibold" style="font-family:'Poppins',sans-serif;" id="titulo-alerta">Queda detectada!</h2>
                     <p class="mb-0 txt-small" id="subtitulo-alerta">
-                        Sem resposta da pulseira há <strong id="tempo-decorrido">00:47</strong>
+                        Sem resposta da pulseira há <strong id="tempo-decorrido">00:05</strong>
                     </p>
                 </div>
 
@@ -99,10 +40,10 @@
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body d-flex align-items-center gap-3">
                         <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-semibold"
-                             style="width:50px;height:50px;background-color:var(--botoes-secundarios);font-family:'Poppins',sans-serif;">MS</div>
+                             style="width:50px;height:50px;background-color:var(--botoes-secundarios);font-family:'Poppins',sans-serif;">I</div>
                         <div>
-                            <div class="txt-main fw-semibold">Maria Silva</div>
-                            <div class="txt-small">82 anos · Quarto 1</div>
+                            <div class="txt-main fw-semibold"> {{ $idoso }} </div>
+                            <div class="txt-small">82 anos</div>
                         </div>
                     </div>
                 </div>
@@ -211,5 +152,4 @@
         document.getElementById('btn-falso-alarme').addEventListener('click', cancelarAlerta);
     </script>
 
-</body>
-</html>
+@endsection
