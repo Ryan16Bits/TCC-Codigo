@@ -183,6 +183,13 @@ class WebsiteController extends Controller
     {
         return view('email.convite');
     }
+
+        public function alerta()
+    {
+        $idoso = Idoso::pluck('nome')->implode(',');
+
+        return view('notificacoes.alerta', compact('idoso'));
+    }
     
     public function logar(Request $request)
     {
