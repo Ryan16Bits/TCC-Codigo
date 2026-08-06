@@ -38,7 +38,7 @@ class WebsiteController extends Controller
         public function home()
     {
         $usuario = Auth::user();
-        $pulseira = Pulseira::pluck('nome');
+        $pulseira = Pulseira::pluck('nome')->implode(',');
 
         return view('home', compact('usuario', 'pulseira'));
     }
@@ -144,11 +144,12 @@ class WebsiteController extends Controller
         public function pulseira()
     {
         $u = Auth::user();
-        $p = Pulseira::pluck('codigo');
+        $p = Pulseira::pluck('codigo')->implode(',');
+        $pn = Pulseira::pluck('nome')->implode(',');
         $c = Cuidador::count();
-        $c1 = Cuidador::pluck('nome');
+        $c1 = Cuidador::pluck('nome')->implode(',');
 
-        return view('pulseira.pulseira', compact('u','p','c','c1'));
+        return view('pulseira.pulseira', compact('u','p','pn','c','c1'));
     }
 
         public function idoso()
