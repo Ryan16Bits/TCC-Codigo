@@ -366,6 +366,30 @@
 
 /* parte do rafael, sai fora daqui, não mexe  >:(  */
 
+ .alerta-card { border: none; border-left: 6px solid var(--botoes-emergencia); border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,.06); transition: border-color 0.3s ease; }
+        .alerta-card.alerta-resolvido { border-left-color: #1FC77B; }
+        .alerta-icone { width: 56px; height: 56px; border-radius: 50%; background-color: var(--botoes-emergencia); display: flex; align-items: center; justify-content: center; flex-shrink: 0; animation: alerta-pulsar 1.4s ease-in-out infinite; }
+        .alerta-icone.alerta-resolvido { background-color: #1FC77B; animation: none; }
+        @keyframes alerta-pulsar { 0%,100%{ box-shadow:0 0 0 0 rgba(197,48,48,.35); } 50%{ box-shadow:0 0 0 10px rgba(197,48,48,0); } }
+        .alerta-badge { background-color: rgba(197,48,48,.10); color: var(--botoes-emergencia); font-family:'Inter',sans-serif; font-weight:600; font-size:.8rem; padding:.4rem .75rem; border-radius:50px; display:inline-flex; align-items:center; gap:6px; }
+        .alerta-badge.alerta-resolvido { background-color: rgba(31,199,123,.12); color: #1FC77B; }
+        .alerta-badge-ponto { width:7px; height:7px; border-radius:50%; background-color: var(--botoes-emergencia); animation: alerta-piscar 1s infinite; }
+        .alerta-badge.alerta-resolvido .alerta-badge-ponto { background-color:#1FC77B; animation:none; }
+        @keyframes alerta-piscar { 0%,100%{opacity:1;} 50%{opacity:.25;} }
+        .alerta-vital { border:none; border-radius:12px; background-color: var(--fundo-principal); box-shadow:0 2px 10px rgba(0,0,0,.05); text-align:center; padding:1rem .5rem; }
+        .alerta-vital-valor { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.25rem; color: var(--cor-navbar); }
+        .alerta-vital-rotulo { font-family:'Inter',sans-serif; font-size:.78rem; color: var(--textos-menores); margin-top:2px; }
+        .alerta-countdown { border:1px dashed var(--botoes-emergencia); border-radius:14px; background-color:#FFF4F3; }
+        .alerta-countdown.alerta-escondido { display:none; }
+        .btn-emergencia { background-color: var(--botoes-emergencia); border-color: var(--botoes-emergencia); color:white; font-family:'Poppins',sans-serif; font-weight:500; }
+        .btn-emergencia:hover { background-color:#a02626; border-color:#a02626; color:white; }
+        .bg-custom-nav { background-color: var(--cor-navbar); }
+        .btn-custom { background-color: var(--botoes-secundarios); border-color: var(--botoes-secundarios); color:white; font-family:'Poppins',sans-serif; font-weight:500; }
+        .btn-custom:hover { background-color: var(--botoes-secundarios-hover); border-color: var(--botoes-secundarios-hover); color:white; }
+        .txt-main { color: var(--textos-principais); font-family:'Inter',sans-serif; font-weight:400; }
+        .txt-small { color: var(--textos-menores); font-family:'Inter',sans-serif; font-weight:300; }
+        body { background-color: var(--card-formularios); font-family:'Inter',sans-serif; }
+
 .ajuda-nav-wrap {
     position: sticky;
     top: 0;
