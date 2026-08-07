@@ -103,8 +103,8 @@
             <h5 class="mb-3">Status da Conexão</h5>
 
             <div class="d-flex align-items-center gap-2">
-                <span class="badge bg-danger">Desconectado</span>
-                <span class="txt-small">Nenhuma pulseira vinculada</span>
+                <span class="badge bg-success">Conectado</span>
+                <span class="txt-small"> {{ $p }}</span>
             </div>
 
         </div>

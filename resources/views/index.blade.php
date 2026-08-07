@@ -164,6 +164,7 @@
                         NOVA QUEDA DETECTADA!
                     </div>
                     <span class="tempo">⏰ ${dataHora}</span>
+                    <span class="tempo">Clique aqui para saber mais</span>
                 `;
 
                 // Adiciona ao container
@@ -184,6 +185,12 @@
 
                 // 🔔 Notificação do navegador
                 this.enviarNotificacaoNavegador(queda);
+
+                // Quando clicar na notificação
+                popup.onclick = function() {
+                    window.focus(); // Traz a janela para frente
+                    window.open("/notificacoes/alerta"); // Redireciona
+                };
             }
 
             // 🗑️ Remove pop-up com animação
@@ -231,16 +238,9 @@
                 // Envia a notificação
                 if (Notification.permission === "granted") {
                     new Notification("🚨 Nova Queda Detectada!", {
-                        body: `Queda #${queda.idQueda} registrada em ${queda.detectadoEm || 'agora'}`,
-                        icon: "/assets/img/alerta-icon.png" // Opcional
+                        body: `Queda #${queda.idQueda} registrada em ${queda.detectadoEm || 'agora'}`
                     });
                 }
-
-                // Quando clicar na notificação
-                Notification.onclick = function() {
-                    window.focus(); // Traz a janela para frente
-                    window.open("/notificacoes/alerta" + queda.idQueda, "_blank"); // Redireciona
-                };
             }
 
             // 📡 Atualiza o status visual

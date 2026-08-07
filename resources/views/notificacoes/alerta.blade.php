@@ -43,7 +43,7 @@
                              style="width:50px;height:50px;background-color:var(--botoes-secundarios);font-family:'Poppins',sans-serif;">I</div>
                         <div>
                             <div class="txt-main fw-semibold"> {{ $idoso }} </div>
-                            <div class="txt-small">82 anos</div>
+                            <div class="txt-small">75 anos</div>
                         </div>
                     </div>
                 </div>

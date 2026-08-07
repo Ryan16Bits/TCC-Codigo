@@ -38,7 +38,7 @@
 
     <!-- CUIDADORES -->
     <div class="mt-4">
-        <p class="txt-small">CUIDADORES {{ $c }}</p>
+        <p class="txt-small">CUIDADORES {{ $c + 1 }}</p>
 
         <!-- ADM -->
         <div class="card p-3 mb-2 shadow-sm d-flex flex-row align-items-center gap-3">

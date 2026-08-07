@@ -6,7 +6,7 @@
     <div class="text-center mb-5">
       <div class="d-inline-block bg-gradient-primary text-white rounded-4 p-4 px-5 shadow">
         <h1 class="display-5 fw-bold mb-0">
-          <i class="fa-regular fa-hand-peace me-3"></i>Bem Vindo, {{ $usuario->nome }}!
+          Bem Vindo, {{ $usuario->nome }}!
         </h1>
       </div>
     </div>
