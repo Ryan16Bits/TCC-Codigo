@@ -138,7 +138,9 @@ class WebsiteController extends Controller
 
         public function conectar()
     {
-        return view('pulseira.conectar');
+        $p = Pulseira::pluck('nome')->implode(',');
+
+        return view('pulseira.conectar', compact('p'));
     }
 
         public function pulseira()
