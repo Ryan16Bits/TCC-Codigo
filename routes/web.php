@@ -50,7 +50,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/relatorio', [RelatorioController::class, 'index'])->name('relatorio');
 // Exibe o alerta de uma queda específica
-Route::get('/notificacoes/alerta', [WebsiteController::class, 'alerta'])->name('quedas.alerta');
-Route::view ('/alerta', "notificacoes.alerta");
+Route::get('/notificacoes/alerta', [WebsiteController::class, 'alerta'])->name('alerta');
 Route::get('/api/quedas/ultimo-id', [WebsiteController::class, 'ultimoId'])->name('ultimoId');
 Route::get('/api/quedas/verificar', [WebsiteController::class, 'verificarNovasQuedas'])->name('verificarNovasQuedas');
